@@ -1,0 +1,61 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 1.5 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{Hinshaw2013}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Hinshaw}{H.}%
+     {G.~et.al}{G.~e.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{HGe1}
+  \strng{fullhash}{HGe1}
+  \field{labelyear}{2003}
+  \field{sortinit}{H}
+  \field{pages}{19}
+  \field{title}{Nine-year Wilkinson Microwave Anisotropy Probe (WMAP)
+  Observations: Cosmological Parameter Results}
+  \field{volume}{208}
+  \field{journaltitle}{ApJ}
+  \field{year}{2003}
+\endentry
+
+\entry{Merloni2003}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Merloni}{M.}%
+     {et.al}{e.}%
+     {}{}%
+     {A.}{A.}}%
+  }
+  \strng{namehash}{MAe1}
+  \strng{fullhash}{MAe1}
+  \field{labelyear}{2003}
+  \field{sortinit}{M}
+  \field{pages}{1057\bibrangedash 1076}
+  \field{title}{A Fundamental Plane of Black Hole Activity}
+  \field{volume}{345}
+  \field{journaltitle}{MNRAS}
+  \field{year}{2003}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput
