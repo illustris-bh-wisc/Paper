@@ -58,7 +58,8 @@ significant level. These sources defined a fundamental plane in the
 three-dimensional space. The fundamental plane (FP) suggests that
 the physical processes regulating the conversion of an accretion flow
 into radiative energy could be universal across the entire black hole
-mass scale M03.
+mass scale M03.\textbf{This is good, but it needs massaged into a
+narrative.}
 
 In our project, we aim to reproduce the fundamental plane of black
 hole activity in the Illustris Project to see how well the BHs in
@@ -90,7 +91,9 @@ a seed mass of $1.42\times10^{5}M_{\odot}$ are placed in dark matter
 halos of mass greater than $7.1\times10^{10}M_{\odot}$\citep{sijacki2014theillustris}.
 The black hole seeds are allowed to grow through gas accretion or
 through mergers with other black holes. At $z=0$, there are 32,542
-black holes in total with 3965 black holes more massive than $10^{7}M_{\odot}$.
+black holes in total with 3965 black holes more massive than $10^{7}M_{\odot}$.\textbf{Let's
+add some details about the BH prescription so we can talk about it
+in the discussion.}
 
 
 \section{Sample}
@@ -105,7 +108,11 @@ those two properties for the whole sample set we found there are some
 BH with really low accretion rates (Figure \ref{fig:bhpop_full}).
 Since we are attempting to fit a linear relationship effectively between
 mass an accretion rate, such anomalously low accretion rate black
-holes should be omitted.
+holes should be omitted.\textbf{The language here needs a bit of cleanup
+and turned into more of a narrative. Try to stay away from subjective
+language like ``really low'' and stick with quantitative measures.
+How did you determine that 10\textasciicircum{}-20 is a silly value
+for BH accretion?}
 
 We accomplished this by first noting that the main sequence of black
 holes follows roughly a log-normal distribution in accretion rate
@@ -113,12 +120,15 @@ space, centered around approximately $\dot{M}_{BH}=10^{-12.5}M_{\odot}/s$.
 However, there also exists a small, secondary population centered
 around approximately $\dot{M}_{BH}=10^{-15.7}M\odot/s$ (see Figure
 \ref{fig:bhpop_mdot}). To effectively eliminate the low accretion
-rate BHs, we impose a hard lower limit on accretion rates, and eliminate
-all data below that cutoff.
+rate BHs, we impose a hard lower limit \textbf{(what is the specific
+limit?) }on accretion rates, and eliminate all data below that cutoff.
 \begin{figure}
 \includegraphics[clip,scale=0.6]{Figures/Illustris2_bhpop_full} \protect\caption{\label{fig:bhpop_full}Each light blue dot represents a single black
 hole. Two populations are apparent: a quiescent group and a much larger
-accreting population.}
+accreting population. \textbf{Figure captions need to explain what
+is on the Figure rather than what the figure tells us (that's what
+the text is for!). Be sure to give the units for the axes and mention
+any meaning of colors, symbols, etc. (see Fig. 3 for an example).}}
 \end{figure}
 \begin{figure}
 \includegraphics[clip,scale=0.6]{Figures/Illustris2_bhpop_mdot} \protect\caption{\label{fig:bhpop_mdot}The Full Sample exhibits a weak, but noticeable
@@ -131,9 +141,11 @@ rate, eliminating most of the anomalously low-accreting population.}
 
 \section{Analysis}
 
-\label{sec:dis}With the low accretion rate black holes removed from
-the sample, we construct a power-law relationship between $M$ and
-$\dot{M}$ using linear least-squares (Figure \ref{fig:bhpop_hist2d}).
+\label{sec:dis}\textbf{There is lots of great stuff in this section,
+but it doesn't flow very well. Building a narrative is the hardest
+part of writing a paper! }With the low accretion rate black holes
+removed from the sample, we construct a power-law relationship between
+$M$ and $\dot{M}$ using linear least-squares (Figure \ref{fig:bhpop_hist2d}).
 The best-fit is given by
 
 \begin{equation}
@@ -236,22 +248,20 @@ log_{10}(a_{1}+\frac{b}{M})-dqlog_{10}(M)+eq\\
 \end{multline*}
 where $a_{1}$, $a_{2}$, and $b$ are obtained from converting simulation
 units to physical units; and $d$ and $e$ are the slope and the intercept
-of the power-law found above. The constants have the following values:
-\begin{itemize}
-\item $a_{1}=623.04$ 
-\item $a_{2}=9.03\times10^{18}$ 
-\item $b=1.656\times10^{-15}$ 
-\item $d=0.869$ 
-\item $e=-17.855$ 
-\end{itemize}
+of the power-law found above. We find that $a_{1}=623.04$, $a_{2}=9.03\times10^{18}$,
+$b=1.656\times10^{-15}$, $d=0.869$, and $e=-17.855$.\textbf{These
+need units.}
+
 A value of $q$ is found for each black hole by inputting values of
 $M$ and $\dot{M}$, and solving for $q$ using Newton-Raphson numerical
 root-finding. For the distribution of black holes in our Illustris-2
 sample, the distribution of $q$ values is shown in \ref{fig:q_nr_hist}.
 The distribution of $q$ values obtained is strongly peaked at around
 $.068$, with a mean of $.0693$.
+
+\textbf{What does Figure 4 tell us? It's never mentioned.}
 \begin{figure}
-\centering{}\includegraphics[clip,scale=0.15]{Figures/elvis_template}
+\centering{}\includegraphics[clip,scale=0.6]{Figures/elvis_template}
 \protect\caption{\label{fig:Elvis_template}The data points from the BH luminosities
 over plot with the best-fit linear relation between $L_{x}$ and $L_{bol}$
 for the sample.}
@@ -310,6 +320,8 @@ an accretion rate threshold. The fit is overlaid onto a histogram
 of the same population, and fifty of the samples data points.}
 \end{figure}
 
+
+\textbf{Talk about Figure 5.}
 
 
 

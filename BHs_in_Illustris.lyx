@@ -205,6 +205,8 @@ key "merloni2003afundamental"
  The fundamental plane (FP) suggests that the physical processes regulating
  the conversion of an accretion flow into radiative energy could be universal
  across the entire black hole mass scale M03.
+\series bold
+This is good, but it needs massaged into a narrative.
 \end_layout
 
 \begin_layout Standard
@@ -341,6 +343,9 @@ key "sijacki2014theillustris"
 \end_inset
 
 .
+\series bold
+Let's add some details about the BH prescription so we can talk about it
+ in the discussion.
 \end_layout
 
 \begin_layout Section
@@ -378,6 +383,18 @@ reference "fig:bhpop_full"
  Since we are attempting to fit a linear relationship effectively between
  mass an accretion rate, such anomalously low accretion rate black holes
  should be omitted.
+\series bold
+The language here needs a bit of cleanup and turned into more of a narrative.
+ Try to stay away from subjective language like 
+\begin_inset Quotes eld
+\end_inset
+
+really low
+\begin_inset Quotes erd
+\end_inset
+
+ and stick with quantitative measures.
+ How did you determine that 10^-20 is a silly value for BH accretion?
 \end_layout
 
 \begin_layout Standard
@@ -402,11 +419,15 @@ reference "fig:bhpop_mdot"
 
 ).
  To effectively eliminate the low accretion rate BHs, we impose a hard lower
- limit on accretion rates, and eliminate all data below that cutoff.
+ limit 
+\series bold
+(what is the specific limit?) 
+\series default
+on accretion rates, and eliminate all data below that cutoff.
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -430,6 +451,14 @@ name "fig:bhpop_full"
 Each light blue dot represents a single black hole.
  Two populations are apparent: a quiescent group and a much larger accreting
  population.
+ 
+\series bold
+Figure captions need to explain what is on the Figure rather than what the
+ figure tells us (that's what the text is for!).
+ Be sure to give the units for the axes and mention any meaning of colors,
+ symbols, etc.
+ (see Fig.
+ 3 for an example).
 \end_layout
 
 \end_inset
@@ -492,6 +521,11 @@ name "sec:dis"
 
 \end_inset
 
+
+\series bold
+There is lots of great stuff in this section, but it doesn't flow very well.
+ Building a narrative is the hardest part of writing a paper! 
+\series default
 With the low accretion rate black holes removed from the sample, we construct
  a power-law relationship between 
 \begin_inset Formula $M$
@@ -850,42 +884,29 @@ where
 \end_inset
 
  are the slope and the intercept of the power-law found above.
- The constants have the following values:
-\end_layout
-
-\begin_layout Itemize
+ We find that 
 \begin_inset Formula $a_{1}=623.04$
 \end_inset
 
- 
-\end_layout
-
-\begin_layout Itemize
+, 
 \begin_inset Formula $a_{2}=9.03\times10^{18}$
 \end_inset
 
- 
-\end_layout
-
-\begin_layout Itemize
+, 
 \begin_inset Formula $b=1.656\times10^{-15}$
 \end_inset
 
- 
-\end_layout
-
-\begin_layout Itemize
+, 
 \begin_inset Formula $d=0.869$
 \end_inset
 
- 
-\end_layout
-
-\begin_layout Itemize
+, and 
 \begin_inset Formula $e=-17.855$
 \end_inset
 
- 
+.
+\series bold
+These need units.
 \end_layout
 
 \begin_layout Standard
@@ -932,6 +953,14 @@ reference "fig:q_nr_hist"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+What does Figure 4 tell us? It's never mentioned.
+\series default
+
 \begin_inset Float figure
 wide false
 sideways false
@@ -942,7 +971,7 @@ status collapsed
 \begin_inset Graphics
 	filename Figures/elvis_template.png
 	display false
-	scale 15
+	scale 60
 	clip
 
 \end_inset
@@ -1188,6 +1217,12 @@ The best-fit power-law relationship between
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Talk about Figure 5.
 \end_layout
 
 \begin_layout Standard
