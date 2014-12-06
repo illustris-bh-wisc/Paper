@@ -1,0 +1,329 @@
+%% LyX 2.1.2 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[usenatbib]{emulateapj}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=true,pdfborder={0 0 0},backref=section,colorlinks=true]
+ {hyperref}
+\hypersetup{
+ linkcolor=blue,citecolor=blue}
+\usepackage{breakurl}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage[caption=false]{subfig}
+
+\makeatother
+
+\begin{document}
+\title{Probing the Fundamental Plane of Black Hole Activity in the Illustris Simulation}
+\author{Diego F. Gonz\'alez-Casanova, Tim Haines, Zachary Pace, Brianna Smart, Andrea Vang}
+\address{Astronomy Department, University of Wisconsin-Madison, 475 North Charter Street, Madison, WI 53706-1582, USA}
+\begin{abstract}
+Here is our abstract.
+\end{abstract}
+\keywords{black hole physics -- accretion -- cosmology: miscellaneous}
+\maketitle
+
+
+\section{Introduction}
+
+Accreting black holes such as active galactic nuclei (AGN) are believed
+to be important in the evolution of galaxies as the feedback from
+AGN can trigger \textbf{I don't believe this. Do we have a citation?}
+and/or quench star formation\citep[see ][and references therein]{hopkins2008acosmological}.
+Thus, in order to understand galaxy evolution, it is important to
+understand the physics of black holes. Specifically, it is important
+to probe their influence on the surrounding environment.\textbf{This
+is a good start, but why do we care about BHs at all? Talk about angular
+momentum catastrophe and how feedback attempts to solve this problem.
+Discuss other observational and theoretical evidence for the need
+of some feedback mechanism and why BHs do the job (see Hopkins08,Springel05,Schawinksi+ALL)}
+
+There are distinctive signatures of BH activity that can be used to
+probe for the presence of a black hole. For example, relativistic
+jets emitting synchrotron radiation in the radio band. Strong X-ray
+emission from from inverse-Compton scattering in the corona can be
+related to the accretion flow of the BH. \citet[hereafter, M03]{merloni2003afundamental}
+investigate the properties of $\sim$100 AGN's compact emission in
+the X-ray and radio bands and showed that the radio luminosity is
+correlated with both the mass and the X-ray luminosity at a highly
+significant level. These sources defined a fundamental plane in the
+three-dimensional space. The fundamental plane (FP) suggests that
+the physical processes regulating the conversion of an accretion flow
+into radiative energy could be universal across the entire black hole
+mass scale M03.
+
+In our project, we aim to reproduce the fundamental plane of black
+hole activity in the Illustris Project to see how well the BHs in
+the simulation fit with observations. Most specifically, we aim to
+determine the efficiency coefficient $q$ in Equation \ref{LxFP}
+in the Illustris simulation using the mass and mass accretion rates
+of BHs. From this analysis, we can begin to understand to how well
+the Illustris simulates the real physics of black holes in the universe.
+
+This paper is structured as follows. In Section \ref{sec:dis}, we
+discuss our results in accordance to the Illustris simulations and
+the fundamental plane of BH. In Section~\ref{sec:discussion} we
+give our conclusions.
+
+
+\section{The Illustris Simulation}
+
+The Illustris Project is a series of large-scale cosmological hydrodynamical
+simulations of galaxy formation \citep{vogelsberger2014properties}.
+The simulation consists of large cosmological situations in a periodic
+box with $106.5\;{\rm Mpc}$, simulated with different physics at
+different resolutions. It assumes a standard flat $\Lambda$CDM cosmology
+with $\Omega_{m,0}=0.2726$, $\Omega_{\Lambda,0}=0.72746$, $\Omega_{b,0}=0.0456$,
+and $H_{0}=70.4$ km s$^{-1}$ Mpc$^{-1}$ from the Wilkinson Microwave
+Anisotropy Probe 9-year data release \citep{hinshaw2013nineyear}.
+
+In the Illustris simulations, collisionless black hole particles with
+a seed mass of $1.42\times10^{5}M_{\odot}$ are placed in dark matter
+halos of mass greater than $7.1\times10^{10}M_{\odot}$\citep{sijacki2014theillustris}.
+The black hole seeds are allowed to grow through gas accretion or
+through mergers with other black holes. At $z=0$, there are 32,542
+black holes in total with 3965 black holes more massive than $10^{7}M_{\odot}$.
+
+
+\section{Sample}
+
+The BH population in Illustris was analysed using the low resolution
+simulation at a redshift of $z=0$. The Illustris simulation gives
+the mass and accretion rate for each BH. We first eliminate all BH
+particles with $M=0$ or $\dot{{\rm M}}=0$, which we assume to be
+unphysical. We will hereafter refer to the remaining population (admittedly
+somewhat anomalously) as the Full Illustris-2 Black Hole Sample. Analyzing
+those two properties for the whole sample set we found there are some
+BH with really low accretion rates (Figure \ref{fig:bhpop_full}).
+Since we are attempting to fit a linear relationship effectively between
+mass an accretion rate, such anomalously low accretion rate black
+holes should be omitted.
+
+We accomplished this by first noting that the main sequence of black
+holes follows roughly a log-normal distribution in accretion rate
+space, centered around approximately $\dot{M}_{BH}=10^{-12.5}M_{\odot}/s$.
+However, there also exists a small, secondary population centered
+around approximately $\dot{M}_{BH}=10^{-15.7}M\odot/s$ (see Figure
+\ref{fig:bhpop_mdot}). To effectively eliminate the low accretion
+rate BHs, we impose a hard lower limit on accretion rates, and eliminate
+all data below that cutoff.
+\begin{figure}
+\includegraphics[clip,scale=0.6]{Figures/Illustris2_bhpop_full} \protect\caption{\label{fig:bhpop_full}Each light blue dot represents a single black
+hole. Two populations are apparent: a quiescent group and a much larger
+accreting population.}
+\end{figure}
+\begin{figure}
+\includegraphics[clip,scale=0.6]{Figures/Illustris2_bhpop_mdot} \protect\caption{\label{fig:bhpop_mdot}The Full Sample exhibits a weak, but noticeable
+bimodality in accretion rate space. We fit two log-normal distributions
+to the raw distribution, and impose a strict cutoff on the accretion
+rate, eliminating most of the anomalously low-accreting population.}
+\end{figure}
+
+
+
+\section{Analysis}
+
+\label{sec:dis}With the low accretion rate black holes removed from
+the sample, we construct a power-law relationship between $M$ and
+$\dot{M}$ using linear least-squares (Figure \ref{fig:bhpop_hist2d}).
+The best-fit is given by
+
+\begin{equation}
+log_{10}(\dot{M})=0.569log_{10}(M)-17.855\;.\label{eq:int_relation}
+\end{equation}
+This relationship reflects the intrinsic properties of the simulation,
+and is subject to no additional models.
+
+The fundamental plane of black holes in the local universe from M03
+is shown in Figure \ref{fig:Fp} and defined as
+
+\begin{equation}
+\log L_{R}=0.6\log L_{x}+0.78\log M+7.33
+\end{equation}
+where the $L_{R}$ is the radio luminosity, $L_{X}$ is the X-ray
+luminosity, and $M$ is the mass of the black hole. From this relation,
+the accretion-powered X-ray luminosity can be expressed as
+
+\begin{equation}
+\log L_{x}=\log M+q\log\dot{m}+K_{2}\;,\label{LxFP}
+\end{equation}
+where $K_{2}$ is normalization constant. Depending on the accretion
+flow model, the efficiency coefficient $q$ ranges from 0.5 (optically
+thick thin disk accretion flow) to 2.3 (advection dominated accretion
+flow). The most significant aspect of the fundamental plane is that
+it is a correlation which we can apply our general knowledge of galactic
+BHs to AGNs and vice versa.
+\begin{figure}
+\centering{}\includegraphics[clip,scale=0.35]{Figures/FP} \protect\caption{\label{fig:Fp}Edge-on view of the fundamental plane from M03 relating
+the black hole mass to the radio and X-ray luminosity. Symbols indicate
+the type of emission-line galaxy of the host and colors correspond
+to the mass of the black hole in units of $\log\left({\rm M}_{\odot}\right)$.
+Several well-known galaxies hosting an AGN are listed, as well.}
+\end{figure}
+
+
+The fundamental plane of the BHs relates the mass, X-ray luminosity
+and accretion rate. Because the luminosity is not an intrinsic property
+of the simulation, it had to be calculated. The calculation of the
+luminosity for BH can be approximated by two different models. The
+first one takes into account the Eddington luminosity of the BH, which
+relates it to the mass, and the second uses the thin disk approximation,
+which relates the luminosity to the accretion rate. Both of these
+approximations for the luminosity gives the bolometric luminosity.
+To get the X-ray luminosity from the bolometric luminosity we use
+the \citet{elvis1994atlasof} data sample to calculate a template
+. The equation relation from the Elvis template is given by
+
+\begin{equation}
+L_{x}=0.1947L_{bol}+1.656\times10^{-15}\;.
+\end{equation}
+
+
+Assuming the BH is only emitting at 10\% off the Eddington luminosity
+and by means of the Elvis Template the X-luminosity for the BH is
+given by
+
+\begin{equation}
+L_{x}=623.04M+1.656\times10^{-15}\;.\label{eq:Lx_propto_m}
+\end{equation}
+By assuming a thin disk approximation with 10\% efficiency we get
+that the X-luminosity for the BH is given by
+
+\begin{equation}
+L_{x}=4.64\times10^{19}\dot{M}+1.656\times10^{-15}\;,\label{eq:Lx_propto_mdot}
+\end{equation}
+for all the cases the masses, accretion rates and luminosities are
+measured in $M_{\odot}$, $M_{\odot}s^{-1}$ and $L_{\odot}$. With
+equations \ref{eq:Lx_propto_m} and \ref{eq:Lx_propto_mdot} and using
+the equation \ref{LxFP}. The fundamental plane equation can be rewritten
+in terms of mass, accretion rate, k and q. By means of using the intrinsic
+mass to accretion relation, equation \ref{eq:int_relation}, the fundamental
+plane can be express with only 3 variables.
+
+\begin{multline}
+log_{10}(9.03\times10^{18}\dot{M}+1.656\times10^{-15})+1.115log_{10}(\dot{M})\\
+-\frac{e}{d}qlog_{10}(\dot{M})+k=0
+\end{multline}
+\begin{multline}
+log_{10}(623.04+\frac{1.656\times10^{-15}}{M})\\
+-0.869qlog_{10}(M)+17.855-k=0
+\end{multline}
+
+
+The parameter $q$ holds the information on the properties of the
+BH. Hence the adequate value that fits the simulations had to be found.
+Using the Newton-Raphson numerical root-finding method for the two
+equations and evaluating throw the whole data sample, $q$ is express
+in terms of $k$. We find a high correlation between the values of
+$q$ and $k$. Since we hope to reproduce the slope $q$ from M03,
+which does not provide typical values for $k$, we must approach this
+in a rather roundabout manner. We assume that both approximations
+for $L_{x}$ are equally good, and will yield similar results, and
+combine \ref{eq:Lx_propto_m} and \ref{eq:Lx_propto_mdot} with the
+relationship found between $M$ and $\dot{M}$ given by
+
+\begin{multline*}
+log_{10}(a_{1}+\frac{b}{M})-dqlog_{10}(M)+eq\\
+-log_{10}(a_{2}\dot{M}+b)+\frac{1}{d}log_{10}(\dot{M})-\frac{e}{d}qlog_{10}(\dot{M})=0\;,
+\end{multline*}
+where $a_{1}$, $a_{2}$, and $b$ are obtained from converting simulation
+units to physical units; and $d$ and $e$ are the slope and the intercept
+of the power-law found above. The constants have the following values:
+\begin{itemize}
+\item $a_{1}=623.04$ 
+\item $a_{2}=9.03\times10^{18}$ 
+\item $b=1.656\times10^{-15}$ 
+\item $d=0.869$ 
+\item $e=-17.855$ 
+\end{itemize}
+A value of $q$ is found for each black hole by inputting values of
+$M$ and $\dot{M}$, and solving for $q$ using Newton-Raphson numerical
+root-finding. For the distribution of black holes in our Illustris-2
+sample, the distribution of $q$ values is shown in \ref{fig:q_nr_hist}.
+The distribution of $q$ values obtained is strongly peaked at around
+$.068$, with a mean of $.0693$.
+\begin{figure}
+\centering{}\includegraphics[clip,scale=0.15]{Figures/elvis_template}
+\protect\caption{\label{fig:Elvis_template}The data points from the BH luminosities
+over plot with the best-fit linear relation between $L_{x}$ and $L_{bol}$
+for the sample.}
+\end{figure}
+\begin{figure}
+\includegraphics[scale=0.45]{Figures/q_nr_hsit}
+
+\protect\caption{\label{fig:q_nr_hist}A log-histogram of the number of best-fit $q$
+values, with one value found per Illustris-2 black hole, using Newton-Raphson
+root finding. The maximum likelihood is (SOMEWHERE), with (SOME NUMBER
+OF) black holes, and the mean value is $0.693$.}
+\end{figure}
+
+
+
+\section{Discussion}
+
+\label{sec:discussion}It is well known that the accretion processes
+of black holes and the resultant energy deposition into the host galaxy
+are necessary ingredients in the evolution of galaxies over cosmic
+time. Although we do not understand the causal relationship between
+the black hole and its host galaxy, our ability to constrain the mechanisms
+responsible are derived principally from simulations of the phenomena.
+Using the Illustris-2 simulation, we are able for the first time to
+quantify the growth and evolution of supermassive black holes in a
+cosmological simulation at the resolution of \textbf{XXX }${\rm M_{\odot}}$.
+Using these high-resolution simulation results, we have modelled both
+the x-ray and radio luminosities as a function of black hole mass
+over the full range present in the Illustris-2 simulation.
+
+In Figure \ref{fig:bhpop_hist2d}, we find that the accretion rate
+of black holes with masses less than the median mass of $\mathbf{XXX}{\rm M}_{\odot}$
+exhibit accretion rates that differ by \textbf{N} orders of magnitude.
+Further, \textbf{XXX\%} exhibit accretion rates less than $10^{-10}\,{\rm M_{\odot}s^{-1}}$
+indicating that, on the average, a black hole must accrete for $\mathbf{XX}\,{\rm Gyrs}$
+to achieve the median mass. These accretion rates are too low to account
+for their masses at $z=0$. For example, a typical low-mass ($10^{7}M_{\odot}$)
+black hole accretes at approximately $10^{-12}M_{\odot}s^{-1}$ at
+$z=0$. At this rate, such a black hole could only yields a mass of
+$\sim10^{5}M_{\odot}$ over the simulation time. Although the high-mass
+black holes have generally larger accretion rates in excess of $\dot{M}\approx10^{-10}M_{\odot}s^{-1}$,
+the same calculation yields masses of $\sim10^{7}M_{\odot}$ compared
+to the actual mass of $\sim10^{9}M_{\odot}$ attained over the simulation
+time. This implies that the accretion rates for most of the black
+holes in the simulation were likely much larger in the past. This
+is consistent with the notion that black hole accretion rates are
+tied to the gas fraction in galaxies which was larger at higher redshift.
+\textbf{Can we find out when the BH was seeded? I want to make a plot
+of seed time vs mass to make this more concrete. Is the linear relation
+between mass and $\dot{M}$ known either empirically or from theory?}
+\begin{figure}
+\includegraphics[clip,scale=0.6]{Figures/Illustris2_bhpop_hist2d}
+\protect\caption{\label{fig:bhpop_hist2d}The best-fit power-law relationship between
+$M$ and $\dot{M}$ for the sample of Illustris-2 BHs, after imposing
+an accretion rate threshold. The fit is overlaid onto a histogram
+of the same population, and fifty of the samples data points.}
+\end{figure}
+
+
+
+
+
+\section{Conclusions}
+
+\label{sec:conclusions}In this work, we have analyzed the complete
+of supermassive black holes from the state-of-the-art cosmological
+hydrodynamical simulation Illustris-2. Applying well-known models
+of black hole phenomena, we calculated the x-ray and radio luminosities
+as a function of black hole mass. Using the empirically-derived relation
+between these three quantities, we have shown that the 
+
+\bibliographystyle{apj}
+\bibliography{BHs_in_Illustris}
+
+\end{document}
