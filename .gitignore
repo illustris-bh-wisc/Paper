@@ -1,0 +1,16 @@
+*.aux
+*.bbl
+*.blg
+*.log
+*.pdf
+*.log
+*.png
+*.jpeg
+*.jpg
+*.ps
+*.eps
+*.bmp
+Figures/*
+illustris-bh/*
+Figures.zip
+*.*~
