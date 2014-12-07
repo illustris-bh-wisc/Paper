@@ -150,14 +150,49 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-Accreting black holes such as active galactic nuclei (AGN) are believed
- to be important in the evolution of galaxies as the feedback from AGN can
- trigger 
+Since the earliest simulations of the formation and evolution of disk galaxies,
+ the problem of stability of the gas in the disk has been a key issue 
+\begin_inset CommandInset citation
+LatexCommand citep
+before "e.g., "
+key "lucy1977anumerical"
+
+\end_inset
+
+.
+ Even disk galaxies simulated under the standard hierarchical cosmological
+ model exhibit instabilities 
 \series bold
-I don't believe this.
- Do we have a citation?
+[CITATION]
 \series default
- and/or quench star formation
+.
+ One prominent example of this is the so-called 'angular-momentum catastrophe'
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "navarro1994accretion"
+
+\end_inset
+
+ in which the specific angular momentum of simulated disks is smaller than
+ values observed in real galaxies by an order of magnitude- resulting in
+ disks that are smaller than observations by a similar factor.
+ Further, the gas in the simulations cools too quickly causing it to spiral
+ into the disk's center and form a bulge.
+ However, not all disk galaxies contain a bulge.
+ Clearly, then, the simulations are not faithfully representing the physical
+ processes governing disk formation in nature.
+ The currently accepted solution to this problem is the introduction of
+ one or more feedback mechanisms which deposit energy into the gas, heating
+ it ,and preventing its aggregation in the disk's center.
+\end_layout
+
+\begin_layout Standard
+One popular mechanism to drive this feedback is the accretion of gas onto
+ a central black hole.
+ These so-called active galactic nuclei (AGN) are believed to be important
+ in the evolution of galaxies as a mechanism for quenching star formation
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 after "and references therein"
@@ -166,26 +201,68 @@ key "hopkins2008acosmological"
 
 \end_inset
 
+ and stabilizing the gas disk 
+\series bold
+[CITATION]
+\series default
+.
+ The presence of AGN in 
+\begin_inset Formula $\sim3\%$
+\end_inset
+
+ of local galaxies at 
+\begin_inset Formula $z\lesssim0.7$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "haggard2010thefield"
+
+\end_inset
+
+ with an increasing fraction at higher redshifts 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "martini2013thecluster"
+
+\end_inset
+
+ indicates that this mechanism may contribute a non-negligible source of
+ energy for evolving galaxies.
+ Additionally, the invocation of an AGN feedback mechanism has been shown
+ to be necessary in order to recreate the present-day color-magnitude relation
+ of massive red galaxies 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "springel2005blackholes"
+
+\end_inset
+
 .
  Thus, in order to understand galaxy evolution, it is important to understand
- the physics of black holes.
- Specifically, it is important to probe their influence on the surrounding
- environment.
-\series bold
-This is a good start, but why do we care about BHs at all? Talk about angular
- momentum catastrophe and how feedback attempts to solve this problem.
- Discuss other observational and theoretical evidence for the need of some
- feedback mechanism and why BHs do the job (see Hopkins08,Springel05,Schawinksi+
-ALL)
+ the physics governing black holes.
 \end_layout
 
 \begin_layout Standard
-There are distinctive signatures of BH activity that can be used to probe
- for the presence of a black hole.
+The question then remains as to how we can tie properties of AGN in simulations
+ back to observations to further constrain the physics of this feedback
+ mechanism.
+ Fortunately, there are distinctive signatures of AGN activity that can
+ be used to probe for the presence of an accreting black hole.
  For example, relativistic jets emitting synchrotron radiation in the radio
- band.
- Strong X-ray emission from from inverse-Compton scattering in the corona
- can be related to the accretion flow of the BH.
+ are a strong indicator of recent AGN activity 
+\series bold
+[CITATION]
+\series default
+.
+ Additionally, X-ray emission typically in excess 
+\begin_inset Formula $\sim10^{42}\,{\rm ergs}\,{\rm s^{-1}}$
+\end_inset
+
+ stemming from inverse-Compton scattering of electrons in the corona around
+ the accretion disk of the black hole provides a clear signpost of a strong
+ source of ionizing energy.
  
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -194,40 +271,33 @@ key "merloni2003afundamental"
 
 \end_inset
 
- investigate the properties of 
-\begin_inset Formula $\sim$
+ investigated the properties of 
+\begin_inset Formula $\sim100$
 \end_inset
 
-100 AGN's compact emission in the X-ray and radio bands and showed that
- the radio luminosity is correlated with both the mass and the X-ray luminosity
- at a highly significant level.
- These sources defined a fundamental plane in the three-dimensional space.
- The fundamental plane (FP) suggests that the physical processes regulating
- the conversion of an accretion flow into radiative energy could be universal
- across the entire black hole mass scale M03.
-\series bold
-This is good, but it needs massaged into a narrative.
+ local galaxies containing an AGN with compact emission in both the X-ray
+ and radio and showed that the radio luminosity is well correlated with
+ both the mass and the X-ray luminosity.
+ In that work, M03 defined a fundamental plane combining the two observational
+ signatures (X-ray and radio luminosities) with the accretion flow onto
+ the black hole.
+ The existence of the fundamental plane suggests that the physical processes
+ regulating the conversion of an accretion flow of gas into radiative energy
+ could be universal across the entire black hole mass scale.
 \end_layout
 
 \begin_layout Standard
-In our project, we aim to reproduce the fundamental plane of black hole
- activity in the Illustris Project to see how well the BHs in the simulation
- fit with observations.
- Most specifically, we aim to determine the efficiency coefficient 
-\begin_inset Formula $q$
-\end_inset
-
- in Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "LxFP"
-
-\end_inset
-
- in the Illustris simulation using the mass and mass accretion rates of
- BHs.
- From this analysis, we can begin to understand to how well the Illustris
- simulates the real physics of black holes in the universe.
+Clearly, then, an important aspect of modern galaxy formation simulations
+ is the correct implementation of AGN feedback.
+ In this work, we test the accuracy of the AGN feedback mechanism in the
+ state-of-the-art hydrodynamical cosmological simulation Illustris-2.
+ Specifically, we aim to determine the fundamental plane of black hole activity
+ using the mass and accretion rates in Illustris-2 and compare against those
+ measured in M03.
+ From this analysis, we can begin to understand how well state-of-the-art
+ simulations replicate the real physics of black holes in the universe to
+ better understand the relationship between AGN and the evolution of their
+ host galaxies.
 \end_layout
 
 \begin_layout Standard
@@ -235,12 +305,28 @@ This paper is structured as follows.
  In Section 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:dis"
+reference "sec:illustris"
 
 \end_inset
 
-, we discuss our results in accordance to the Illustris simulations and
- the fundamental plane of BH.
+, we outline the implementation of the Illustris-2 simulations.
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:sample"
+
+\end_inset
+
+ discusses our sample of black holes extracted from Illustris-2.
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:analysis"
+
+\end_inset
+
+ we determine how the black holes in the Illustris-2 simulation coincide
+ with the fundamental plane of M03.
  In Section
 \begin_inset space ~
 \end_inset
@@ -252,7 +338,14 @@ reference "sec:discussion"
 
 \end_inset
 
- we give our conclusions.
+ we discuss our results, and Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:conclusions"
+
+\end_inset
+
+ presents our final conclusions.
 \end_layout
 
 \begin_layout Section
@@ -260,6 +353,12 @@ The Illustris Simulation
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:illustris"
+
+\end_inset
+
 The Illustris Project is a series of large-scale cosmological hydrodynamical
  simulations of galaxy formation 
 \begin_inset CommandInset citation
@@ -353,6 +452,12 @@ Sample
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:sample"
+
+\end_inset
+
 The BH population in Illustris was analysed using the low resolution simulation
  at a redshift of 
 \begin_inset Formula $z=0$
@@ -427,7 +532,7 @@ on accretion rates, and eliminate all data below that cutoff.
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -517,7 +622,7 @@ Analysis
 \begin_layout Standard
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:dis"
+name "sec:analysis"
 
 \end_inset
 
@@ -1223,10 +1328,6 @@ The best-fit power-law relationship between
 
 \series bold
 Talk about Figure 5.
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \begin_layout Section
