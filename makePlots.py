@@ -67,56 +67,57 @@ m1, m2 = clf.means_
 w1, w2 = clf.weights_
 c1, c2 = clf.covars_
 
-histdist = matplotlib.pyplot.hist(np.log10(bmdot_phys), 100, normed=True)
-plotgauss1 = lambda x: plt.plot(x,w1*matplotlib.mlab.normpdf(x,m1,np.sqrt(c1))[0], linewidth=2)
-plotgauss2 = lambda x: plt.plot(x,w2*matplotlib.mlab.normpdf(x,m2,np.sqrt(c2))[0], linewidth=2)
-plotgauss1(histdist[1])
-plotgauss2(histdist[1])
-plt.xlim(-22,1)
-plt.ylim(0,0.55)
-plt.xlabel('Accretion Rate [$log(M_{\odot} yr^{-1})$]', size=axisLabelTextSize)
-plt.ylabel('fraction of sample', size=axisLabelTextSize)
-save_fig('Figures/Illustris2_bhpop_mdot.png')
+#histdist = matplotlib.pyplot.hist(np.log10(bmdot_phys), 100, normed=True)
+#plotgauss1 = lambda x: plt.plot(x,w1*matplotlib.mlab.normpdf(x,m1,np.sqrt(c1))[0], linewidth=2)
+#plotgauss2 = lambda x: plt.plot(x,w2*matplotlib.mlab.normpdf(x,m2,np.sqrt(c2))[0], linewidth=2)
+#plotgauss1(histdist[1])
+#plotgauss2(histdist[1])
+#plt.xlim(-22,1)
+#plt.ylim(0,0.55)
+#plt.xlabel('Accretion Rate [$log(M_{\odot} yr^{-1})$]', size=axisLabelTextSize)
+#plt.ylabel('fraction of sample', size=axisLabelTextSize)
+#save_fig('Figures/Illustris2_bhpop_mdot.png')
 
-print("m2 = ", m2)
+print "m2 = %.3f" % m2
 
 bmdot_phys = bmdot_phys[ np.log10(bmdot_phys) > m2]
 bm_phys = bm_phys[ np.log10(bmdot_phys) > m2 ]
 p, residual, rank, singular_values, rcond = np.polyfit( np.log10(bm_phys), np.log10(bmdot_phys), 1, full = True )
 relation_params = p
 
-print("M+Mdot fit parms = ",p)
+print "Final sample of BHs = %d" % bm_phys.shape[0]
+print "Min BH mass = %.3E" % bm_phys.min()
+print "Max BH mass = %.3E" % bm_phys.max()
+print "M+Mdot fit parms = " , p
 
-fig = make_fig()
-plt.plot(np.linspace(5., 11., 100), np.polyval(p, np.linspace(5., 11., 100)), c = 'g', linestyle = '--')
-H, xedges, yedges = np.histogram2d(np.log10(bm_phys), np.log10(bmdot_phys), 30)
-plt.imshow(H.T, origin='lower', extent=[xedges[0],xedges[-1],yedges[0],yedges[-1]], cmap='Oranges', norm=LogNorm(), aspect='auto', interpolation='none')
-cbar = plt.colorbar(shrink=0.8, pad=0.03)
-cbar.ax.tick_params(labelsize=6)
-plt.ylabel(r'$log(\dot{M}_{BH} [M_{\odot}\,yr^{-1}]$)', fontsize=axisLabelTextSize)
-plt.xlabel(r'$log(M_{BH} [M_{\odot}])$', fontsize=axisLabelTextSize)
-save_fig('Figures/Illustris2_bhpop_hist2d.png')
+#fig = make_fig()
+#plt.plot(np.linspace(5., 11., 100), np.polyval(p, np.linspace(5., 11., 100)), c = 'g', linestyle = '--')
+#H, xedges, yedges = np.histogram2d(np.log10(bm_phys), np.log10(bmdot_phys), 30)
+#plt.imshow(H.T, origin='lower', extent=[xedges[0],xedges[-1],yedges[0],yedges[-1]], cmap='Oranges', norm=LogNorm(), aspect='auto', interpolation='none')
+#cbar = plt.colorbar(shrink=0.8, pad=0.03)
+#cbar.ax.tick_params(labelsize=6)
+#plt.ylabel(r'$log(\dot{M}_{BH} [M_{\odot}\,yr^{-1}]$)', fontsize=axisLabelTextSize)
+#plt.xlabel(r'$log(M_{BH} [M_{\odot}])$', fontsize=axisLabelTextSize)
+#save_fig('Figures/Illustris2_bhpop_hist2d.png')
 
-sys.exit()
-
-### finding q and K using convergence
-## General idea:
-## 
-## For Lx ~ M
-## Define function f(M,q,k) = log10(a + b/M) - 0.694 q log10(M) + 16.3769 - k = 0
-## a = 623.04
-## b = 1.656e-15
-## find zeros
-## 
-## For Lx ~ \.{M}
-## Define function f(\.{M},q,k) = log10(a + b/\.{M}) - 0.694 q log10(\.{M}(M)} + 16.3769 - k = 0
-## a = 9.03e18
-## b = 1.656e-15
-## \.{M}(M) is given by the orange plot
-## 
-## solve system of equations:
-## 
-## log10(a1 + b/M) - d*q*log10(M) + e*q - log10(a2*Mdot + b) + 1/d * log10(Mdot) - e/d * q * log10(Mdot) = 0
+## finding q and K using convergence
+# General idea:
+# 
+# For Lx ~ M
+# Define function f(M,q,k) = log10(a + b/M) - 0.694 q log10(M) + 16.3769 - k = 0
+# a = 623.04
+# b = 1.656e-15
+# find zeros
+# 
+# For Lx ~ \.{M}
+# Define function f(\.{M},q,k) = log10(a + b/\.{M}) - 0.694 q log10(\.{M}(M)} + 16.3769 - k = 0
+# a = 9.03e18
+# b = 1.656e-15
+# \.{M}(M) is given by the orange plot
+# 
+# solve system of equations:
+# 
+# log10(a1 + b/M) - d*q*log10(M) + e*q - log10(a2*Mdot + b) + 1/d * log10(Mdot) - e/d * q * log10(Mdot) = 0
 def f(q, m, mdot):
     a1 = 623.04
     b = 1.656e-15
