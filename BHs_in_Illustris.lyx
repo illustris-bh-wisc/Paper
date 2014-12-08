@@ -91,8 +91,7 @@ status open
 
 
 \backslash
-title{Probing the Fundamental Plane of Black Hole Activity in the Illustris
- Simulation}
+title{The Fundamental Plane of Black Hole Activity in the Illustris Simulation}
 \end_layout
 
 \begin_layout Plain Layout
@@ -160,12 +159,6 @@ key "lucy1977anumerical"
 \end_inset
 
 .
- Even disk galaxies simulated under the standard hierarchical cosmological
- model exhibit instabilities 
-\series bold
-[CITATION]
-\series default
-.
  One prominent example of this is the so-called 'angular-momentum catastrophe'
  
 \begin_inset CommandInset citation
@@ -176,15 +169,15 @@ key "navarro1994accretion"
 
  in which the specific angular momentum of simulated disks is smaller than
  values observed in real galaxies by an order of magnitude- resulting in
- disks that are smaller than observations by a similar factor.
- Further, the gas in the simulations cools too quickly causing it to spiral
- into the disk's center and form a bulge.
+ disks with sizes smaller than observations by a similar factor.
+ Further, the gas in the simulated disks cools too quickly, causing it to
+ spiral into the disk's center and form a bulge.
  However, not all disk galaxies contain a bulge.
  Clearly, then, the simulations are not faithfully representing the physical
  processes governing disk formation in nature.
  The currently accepted solution to this problem is the introduction of
  one or more feedback mechanisms which deposit energy into the gas, heating
- it ,and preventing its aggregation in the disk's center.
+ it, and preventing its aggregation in the disk's center.
 \end_layout
 
 \begin_layout Standard
@@ -241,7 +234,7 @@ key "springel2005blackholes"
 
 .
  Thus, in order to understand galaxy evolution, it is important to understand
- the physics governing black holes.
+ the physics governing black hole accretion.
 \end_layout
 
 \begin_layout Standard
@@ -271,33 +264,33 @@ key "merloni2003afundamental"
 
 \end_inset
 
- investigated the properties of 
+ investigate the properties of 
 \begin_inset Formula $\sim100$
 \end_inset
 
  local galaxies containing an AGN with compact emission in both the X-ray
- and radio and showed that the radio luminosity is well correlated with
- both the mass and the X-ray luminosity.
- In that work, M03 defined a fundamental plane combining the two observational
+ and radio and show that the radio luminosity is well correlated both with
+ the mass of the central black hole and the galaxy's X-ray luminosity.
+ In that work, M03 define a fundamental plane combining the two observational
  signatures (X-ray and radio luminosities) with the accretion flow onto
  the black hole.
  The existence of the fundamental plane suggests that the physical processes
- regulating the conversion of an accretion flow of gas into radiative energy
- could be universal across the entire black hole mass scale.
+ regulating the conversion of gas accreted onto the black hole into radiative
+ energy could be universal across the entire scale of black hole masses.
 \end_layout
 
 \begin_layout Standard
-Clearly, then, an important aspect of modern galaxy formation simulations
+Clearly, then, an important component of modern galaxy formation simulations
  is the correct implementation of AGN feedback.
  In this work, we test the accuracy of the AGN feedback mechanism in the
  state-of-the-art hydrodynamical cosmological simulation Illustris-2.
  Specifically, we aim to determine the fundamental plane of black hole activity
- using the mass and accretion rates in Illustris-2 and compare against those
- measured in M03.
+ using the mass and accretion rates in the simulation and compare against
+ those measured in M03.
  From this analysis, we can begin to understand how well state-of-the-art
- simulations replicate the real physics of black holes in the universe to
- better understand the relationship between AGN and the evolution of their
- host galaxies.
+ simulations replicate the real physics of black hole accretion and AGN
+ feedback in the universe to better understand the relationship between
+ AGN and the evolution of their host galaxies.
 \end_layout
 
 \begin_layout Standard
@@ -448,7 +441,7 @@ Let's add some details about the BH prescription so we can talk about it
 \end_layout
 
 \begin_layout Section
-Sample
+Sample of Black Holes
 \end_layout
 
 \begin_layout Standard
@@ -523,12 +516,12 @@ reference "fig:bhpop_mdot"
 \end_inset
 
 ).
- To effectively eliminate the low accretion rate BHs, we impose a hard lower
- limit 
-\series bold
-(what is the specific limit?) 
-\series default
-on accretion rates, and eliminate all data below that cutoff.
+ To produce a clean sample of accreting black holes, we require an accretion
+ rate of 
+\begin_inset Formula $\ge10^{-8.19}\; M_{\odot}yr^{-1}$
+\end_inset
+
+.
 \begin_inset Float figure
 wide false
 sideways false
@@ -538,7 +531,6 @@ status collapsed
 \begin_inset Graphics
 	filename Figures/Illustris2_bhpop_full.png
 	display false
-	scale 60
 	clip
 
 \end_inset
@@ -563,7 +555,14 @@ Figure captions need to explain what is on the Figure rather than what the
  Be sure to give the units for the axes and mention any meaning of colors,
  symbols, etc.
  (see Fig.
- 3 for an example).
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Fp"
+
+\end_inset
+
+ for an example).
 \end_layout
 
 \end_inset
@@ -583,7 +582,6 @@ status collapsed
 \begin_inset Graphics
 	filename Figures/Illustris2_bhpop_mdot.png
 	display false
-	scale 60
 	clip
 
 \end_inset
@@ -616,7 +614,7 @@ The Full Sample exhibits a weak, but noticeable bimodality in accretion
 \end_layout
 
 \begin_layout Section
-Analysis
+Black Hole Fundamental Plane in Illustris
 \end_layout
 
 \begin_layout Standard
@@ -626,13 +624,16 @@ name "sec:analysis"
 
 \end_inset
 
-
+Starting with our sample of 
 \series bold
-There is lots of great stuff in this section, but it doesn't flow very well.
- Building a narrative is the hardest part of writing a paper! 
+XX 
 \series default
-With the low accretion rate black holes removed from the sample, we construct
- a power-law relationship between 
+black holes with masses 
+\begin_inset Formula $\ge10^{XX}\; M_{\odot}$
+\end_inset
+
+, we seek a relation between the masses and accretion rates.
+ This relation allows us to construct a power-law relationship between 
 \begin_inset Formula $M$
 \end_inset
 
@@ -661,6 +662,51 @@ log_{10}(\dot{M})=0.569log_{10}(M)-17.855\;.\label{eq:int_relation}
 
 This relationship reflects the intrinsic properties of the simulation, and
  is subject to no additional models.
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Figures/Illustris2_bhpop_hist2d.png
+	display false
+	clip
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:bhpop_hist2d"
+
+\end_inset
+
+The best-fit power-law relationship between 
+\begin_inset Formula $M$
+\end_inset
+
+ and 
+\begin_inset Formula $\dot{M}$
+\end_inset
+
+ for the sample of Illustris-2 BHs, after imposing an accretion rate threshold.
+ The fit is overlaid onto a histogram of the same population, and fifty
+ of the samples data points.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -703,7 +749,7 @@ where the
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\log L_{x}=\log M+q\log\dot{m}+K_{2}\;,\label{LxFP}
+\log L_{x}=\log M+q\log\dot{m}+K_{2}\;,\label{eq:LxFP}
 \end{equation}
 
 \end_inset
@@ -748,7 +794,7 @@ name "fig:Fp"
 \end_inset
 
 Edge-on view of the fundamental plane from M03 relating the black hole mass
- to the radio and X-ray luminosity.
+ to the radio and X-ray luminosities.
  Symbols indicate the type of emission-line galaxy of the host and colors
  correspond to the mass of the black hole in units of 
 \begin_inset Formula $\log\left({\rm M}_{\odot}\right)$
@@ -857,7 +903,7 @@ reference "eq:Lx_propto_mdot"
  and using the equation 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "LxFP"
+reference "eq:LxFP"
 
 \end_inset
 
@@ -1076,7 +1122,6 @@ status collapsed
 \begin_inset Graphics
 	filename Figures/elvis_template.png
 	display false
-	scale 60
 	clip
 
 \end_inset
@@ -1117,10 +1162,10 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
-	filename Figures/q_nr_hsit.png
+	filename Figures/q_nr_hist.png
 	display false
-	scale 45
 
 \end_inset
 
@@ -1275,59 +1320,64 @@ Can we find out when the BH was seeded? I want to make a plot of seed time
 \end_inset
 
  known either empirically or from theory?
-\series default
-
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename Figures/Illustris2_bhpop_hist2d.png
-	display false
-	scale 60
-	clip
-
-\end_inset
-
- 
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:bhpop_hist2d"
-
-\end_inset
-
-The best-fit power-law relationship between 
-\begin_inset Formula $M$
-\end_inset
-
- and 
-\begin_inset Formula $\dot{M}$
-\end_inset
-
- for the sample of Illustris-2 BHs, after imposing an accretion rate threshold.
- The fit is overlaid onto a histogram of the same population, and fifty
- of the samples data points.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
 
 \series bold
 Talk about Figure 5.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Figures/Mdot_vs_Mgas.png
+	display false
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Mdot_vs_Mgas"
+
+\end_inset
+
+Black hole accretion rate of as a function of the total gas mass in each
+ subhalo for our sample.
+ Colors correspond to black hole mass.
+ All masses are in units of 
+\begin_inset Formula $\log\left(M_{\odot}\right)$
+\end_inset
+
+ and the accretion rate is in units 
+\begin_inset Formula $\log\left(M_{\odot}yr^{-1}\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

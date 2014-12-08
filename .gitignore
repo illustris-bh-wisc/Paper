@@ -9,7 +9,8 @@
 *.ps
 *.eps
 *.bmp
-illustris-bh/*
+illustrisbh/*
+Illustris-3
 Figures.zip
 *.*~
 *.pyc
