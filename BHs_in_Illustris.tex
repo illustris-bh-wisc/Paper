@@ -135,28 +135,31 @@ eliminate all BH particles with $M=0$ or $\dot{{\rm M}}=0$, which
 we assume to be unphysical. We will hereafter refer to the remaining
 population (admittedly somewhat anomalously) as the Full Illustris-2
 Black Hole Sample. Examining those two properties for the whole sample
-reveals a `knee' in the BH distribution in $M$-$\.{M}$ space (Figure
-\ref{fig:bhpop_full}). We argue that if accretion rate and X-ray luminoristy are indeed linearly related, accretion rates on the order of $10^{-9} M_{\odot}/yr$ (or lower) should not be detectable in the X-ray bands at cosmological distances. Additionally, the presence of the low-accreting population skews the $M$-$\.M$ fit severely: since we are attempting to fit a linear relationship,
-effectively between mass and accretion rate, such anomalously low-accreting black holes should be omitted.\textbf{The language here needs
-a bit of cleanup and turned into more of a narrative. Try to stay
-away from subjective language like ``really low'' and stick with
-quantitative measures. How did you determine that 10\textasciicircum{}-20
-is a silly value for BH accretion?}
+reveals a `knee' in the BH distribution in $M$-$\dot{M}$ space (Figure
+\ref{fig:bhpop_full}). We argue that if accretion rate and X-ray luminoristy are 
+indeed linearly related, accretion rates on the order of $10^{-8.5} M_{\odot}/yr$
+and lower should not be detectable in the X-ray bands at cosmological distances.
+\textbf{I know, this is hand-wavey, I'll fix it later.} Additionally, the presence  
+of the low-accreting population skews the $M$-$\dot{M}$ fit severely: since we are 
+attempting to fit a linear relationship,effectively between mass and accretion 
+rate, such anomalously low-accreting black holes should be omitted.
 
 We accomplished this by first noting that the main sequence of black
 holes follows roughly a log-normal distribution in accretion rate
 space, centered around approximately $\dot{M}_{BH}=10^{-5}M_{\odot}/yr$.
 However, there also exists a small, secondary population centered
-around approximately $\dot{M}_{BH}=10^{-9}M_{\odot}/yr$ (see Figure
+around approximately $\dot{M}_{BH}=10^{-8.5}M_{\odot}/yr$ (see Figure
 \ref{fig:bhpop_mdot}). To produce a clean sample of accreting black
-holes, we require an accretion rate of $\ge10^{-8.19}\; M_{\odot}yr^{-1}$
-giving us a total of $23,277$ for our final sample black holes with
-masses $4.3\times10^{4.3}M_{\odot}\le M_{BH}\le5.85\times10^{10}M_{\odot}$.
+holes, we fit the Full Sample with two Gaussian profiles (in $log(\dot{M}$-space)
+using astroML's one-dimensional Gaussian mixture \citep{vanderplas2012}, and 
+require an accretion rate of $\ge10^{-8.19}\; M_{\odot}yr^{-1}$ (the arithmetic 
+mean of the low-accreting sample). This yields a total of $23,277$ for our final 
+sample black holes with masses $4.3\times10^{4.3}M_{\odot}\le M_{BH}\le5.85\times10^{10}M_{\odot}$.
 \begin{figure}
 \includegraphics[clip]{Figures/Illustris2_bhpop_full} \protect\caption{\label{fig:bhpop_full}The Full Illustris-2 Black Hole Sample, in mass-accretion rate space. Each light blue dot represents a single black hole, with mass in units of $M_{\odot}$ and accretion rate in units of $M_{\odot} yr^{-1}$.}
 \end{figure}
 \begin{figure}
-\includegraphics[clip]{Figures/Illustris2_bhpop_mdot} \protect\caption{\label{fig:bhpop_mdot}The Full Sample exhibits a weak, but noticeable bimodality in accretion rate space. We fit two log-normal distributions to the raw distribution. The green Gaussian profile denotes the high-accreting population, and the small, red Gaussian profile denotes the low-aacreting population. We impose a strict cutoff at on the accretion rate at the peak of the red profile, eliminating most of the anomalously low-accreting population.}
+\includegraphics[clip]{Figures/Illustris2_bhpop_mdot} \protect\caption{\label{fig:bhpop_mdot}The Full Sample exhibits a weak, but noticeable bimodality in accretion rate space. We fit two log-normal distributions to the raw distribution. The green Gaussian profile denotes the high-accreting population, and the small, red Gaussian profile denotes the low-accreting population. We impose a strict cutoff on the accretion rate at the peak of the red profile, eliminating most of the anomalously low-accreting population.}
 \end{figure}
 
 
@@ -240,9 +243,9 @@ for all the cases the masses, accretion rates and luminosities are
 measured in $M_{\odot}$, $M_{\odot}s^{-1}$ and $L_{\odot}$. With
 equations \ref{eq:Lx_propto_m} and \ref{eq:Lx_propto_mdot} and using
 the equation \ref{eq:LxFP}. The fundamental plane equation can be
-rewritten in terms of mass, accretion rate, k and q. By means of using
-the intrinsic mass to accretion relation, equation \ref{eq:int_relation},
-the fundamental plane can be expressed with only 3 variables.
+rewritten in terms of mass, accretion rate, k and q. By using the intrinsic mass to 
+accretion relation fround above, Equation \ref{eq:int_relation}, the fundamental 
+plane can be expressed with only 3 variables.
 
 \begin{multline}
 log_{10}(9.03\times10^{18}\dot{M}+1.656\times10^{-15})+1.115log_{10}(\dot{M})\\
@@ -262,7 +265,7 @@ in terms of $k$. We find a high correlation between the values of
 $q$ and $k$. Since we hope to reproduce the slope $q$ from M03,
 which does not provide typical values for $k$, we must approach this
 in a rather roundabout manner. We assume that both approximations
-for $L_{x}$ are equally good, and will yield similar results, and
+for $L_{x}$ are equally good, and will yield similar results. We then 
 combine \ref{eq:Lx_propto_m} and \ref{eq:Lx_propto_mdot} with the
 relationship found between $M$ and $\dot{M}$ given by
 
@@ -273,7 +276,7 @@ log_{10}(a_{1}+\frac{b}{M})-dqlog_{10}(M)+eq\\
 where $a_{1}$, $a_{2}$, and $b$ are obtained from converting simulation
 units to physical units; and $d$ and $e$ are the slope and the intercept
 of the power-law found above. We find that $a_{1}=623.04$, $a_{2}=9.03\times10^{18}$,
-$b=1.656\times10^{-15}$, $d=0.869$, and $e=-17.855$.\textbf{These
+$b=1.656\times10^{-15}$, $d=0.869$, and $e=-17.855$.\textbf{These constants
 need units.}
 
 A value of $q$ is found for each black hole by inputting values of
@@ -281,9 +284,9 @@ $M$ and $\dot{M}$, and solving for $q$ using Newton-Raphson numerical
 root-finding. For the distribution of black holes in our Illustris-2
 sample, the distribution of $q$ values is shown in \ref{fig:q_nr_hist}.
 The distribution of $q$ values obtained is strongly peaked at around
-$.068$, with a mean of $.0693$.
+$.068$, with a mean of $.0693$. This result contrasts starkly with M03's 
+thin-disk result of $q = 0.5$.
 
-\textbf{What does Figure 4 tell us? It's never mentioned.}
 \begin{figure}
 \centering{}\includegraphics[clip]{Figures/elvis_template} \protect\caption{\label{fig:Elvis_template}The data points from the BH luminosities
 over plot with the best-fit linear relation between $L_{x}$ and $L_{bol}$
