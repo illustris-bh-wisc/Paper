@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 %% LyX 2.1.2 created this file.  For more info, see http://www.lyx.org/.
+=======
+%% LyX 2.1.2.2 created this file.  For more info, see http://www.lyx.org/.
+>>>>>>> Stashed changes
 %% Do not edit unless you really know what you are doing.
 \documentclass[usenatbib]{emulateapj}
 \usepackage[latin9]{inputenc}
@@ -13,9 +17,26 @@
  {hyperref}
 \hypersetup{
  linkcolor=blue,citecolor=blue}
+<<<<<<< Updated upstream
 \usepackage{breakurl}
 
 \makeatletter
+=======
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\newenvironment{lyxcode}
+{\par\begin{list}{}{
+\setlength{\rightmargin}{\leftmargin}
+\setlength{\listparindent}{0pt}% needed for AMS classes
+\raggedright
+\setlength{\itemsep}{0pt}
+\setlength{\parsep}{0pt}
+\normalfont\ttfamily}%
+ \item[]}
+{\end{list}}
+
+>>>>>>> Stashed changes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
 \usepackage[caption=false]{subfig}
 
@@ -37,7 +58,12 @@ Here is our abstract.
 Since the earliest simulations of the formation and evolution of disk
 galaxies, the problem of stability of the gas in the disk has been
 a key issue \citep[e.g., ][]{lucy1977anumerical}. One prominent example
+<<<<<<< Updated upstream
 of this is the so-called `angular-momentum catastrophe' \citep{navarro1994accretion} in which the specific angular momentum of simulated disks is smaller
+=======
+of this is the so-called 'angular-momentum catastrophe' \citep{navarro1994accretion}
+in which the specific angular momentum of simulated disks is smaller
+>>>>>>> Stashed changes
 than values observed in real galaxies by an order of magnitude- resulting
 in disks with sizes smaller than observations by a similar factor.
 Further, the gas in the simulated disks cools too quickly, causing
@@ -119,11 +145,51 @@ Anisotropy Probe 9-year data release \citep{hinshaw2013nineyear}.
 In the Illustris simulations, collisionless black hole particles with
 a seed mass of $1.42\times10^{5}M_{\odot}$ are placed in dark matter
 halos of mass greater than $7.1\times10^{10}M_{\odot}$\citep{sijacki2014theillustris}.
+<<<<<<< Updated upstream
 The black hole seeds are allowed to grow through gas accretion or
 through mergers with other black holes. At $z=0$, there are 32,542
 black holes in total with 3,965 black holes more massive than $10^{7}M_{\odot}$.\textbf{Let's
 add some details about the BH prescription so we can talk about it
 in the discussion.}
+=======
+The black hole seeds are allowed to grow through gas accretion, parametrized
+in terms of Eddington limited Bondi-Hoyle-Lyttleton (BHL)-like accretion
+(\citet{bondi1952accretion,bondihoyle1044}), or through mergers with
+other black holes. BHL is a non-spherical accretion flow which develops
+when a compact object moves relative to a uniform gas cloud. The BHL
+accretion rate on the black hole is given by
+
+\begin{equation}
+\dot{M}_{B}=\frac{4\pi G^{2}M_{BH}^{2}\rho}{(c_{s}^{2}+v^{2})^{3/2}},
+\end{equation}
+
+
+where $\rho$ and $c_{s}$ are the density and sound speed of the
+gas, respectively, $\alpha$ is a dimensionless parameter, and $v$
+is the velocity of the black hole relative to the gas. Then, the accretion
+is limited to the Eddinton rate,
+
+\begin{equation}
+\dot{M}_{Edd}=\frac{4\pi G^{2}M_{BH}m_{p}}{\epsilon_{r}\sigma_{T}c},
+\end{equation}
+
+
+where $m_{p}$ is the proton mass, $\sigma_{T}$is the Thompson cross-section
+and $\epsilon_{r}$is the radiative efficiency. The radiaitve efficiency
+is related to the radiated bolometric luminosity, $L_{B}$, and accretion
+rate, $\dot{M}_{BH}$, by
+\begin{lyxcode}
+\begin{equation}
+\epsilon_{r}=\frac{L_{r}}{\dot{M}_{BH}}
+\end{equation}
+
+\end{lyxcode}
+This simply gives the mass to energy conversion efficiency set by
+the amount of energy that can be extracted from the innermost stable
+orbit of an accretion disk around a black hole. At $z=0$, there are
+32,542 black holes in total with 3965 black holes more massive than
+$10^{7}M_{\odot}$. 
+>>>>>>> Stashed changes
 
 
 \section{Sample of Black Holes}
@@ -134,6 +200,7 @@ simulation gives the mass and accretion rate for each BH. We first
 eliminate all BH particles with $M=0$ or $\dot{{\rm M}}=0$, which
 we assume to be unphysical. We will hereafter refer to the remaining
 population (admittedly somewhat anomalously) as the Full Illustris-2
+<<<<<<< Updated upstream
 Black Hole Sample. Examining those two properties for the whole sample
 reveals a `knee' in the BH distribution in $M$-$\dot{M}$ space (Figure
 \ref{fig:bhpop_full}). We argue that if accretion rate and X-ray luminoristy are 
@@ -160,6 +227,41 @@ sample black holes with masses $4.3\times10^{4.3}M_{\odot}\le M_{BH}\le5.85\time
 \end{figure}
 \begin{figure}
 \includegraphics[clip]{Figures/Illustris2_bhpop_mdot} \protect\caption{\label{fig:bhpop_mdot}The Full Sample exhibits a weak, but noticeable bimodality in accretion rate space. We fit two log-normal distributions to the raw distribution. The green Gaussian profile denotes the high-accreting population, and the small, red Gaussian profile denotes the low-accreting population. We impose a strict cutoff on the accretion rate at the peak of the red profile, eliminating most of the anomalously low-accreting population.}
+=======
+Black Hole Sample. Analyzing those two properties for the whole sample
+set we found there are some BH with really low accretion rates (Figure
+\ref{fig:bhpop_full}). Since we are attempting to fit a linear relationship
+effectively between mass an accretion rate, such anomalously low accretion
+rate black holes should be omitted.\textbf{The language here needs
+a bit of cleanup and turned into more of a narrative. Try to stay
+away from subjective language like ``really low'' and stick with
+quantitative measures. How did you determine that 10\textasciicircum{}-20
+is a silly value for BH accretion?}
+
+We accomplished this by first noting that the main sequence of black
+holes follows roughly a log-normal distribution in accretion rate
+space, centered around approximately $\dot{M}_{BH}=10^{-12.5}M_{\odot}/s$.
+However, there also exists a small, secondary population centered
+around approximately $\dot{M}_{BH}=10^{-15.7}M\odot/s$ (see Figure
+\ref{fig:bhpop_mdot}). To produce a clean sample of accreting black
+holes, we require an accretion rate of $\ge10^{-8.19}\; M_{\odot}yr^{-1}$
+giving us a total of $23,277$ for our final sample black holes with
+masses $4.3\times10^{4.3}M_{\odot}\le M_{BH}\le5.85\times10^{10}M_{\odot}$.
+\begin{figure}
+\includegraphics[clip]{Figures/Illustris2_bhpop_full} \protect\caption{\label{fig:bhpop_full}Each light blue dot represents a single black
+hole. Two populations are apparent: a quiescent group and a much larger
+accreting population. \textbf{Figure captions need to explain what
+is on the Figure rather than what the figure tells us (that's what
+the text is for!). Be sure to give the units for the axes and mention
+any meaning of colors, symbols, etc. (see Fig. \ref{fig:Fp} for an
+example).}}
+\end{figure}
+\begin{figure}
+\includegraphics[clip]{Figures/Illustris2_bhpop_mdot} \protect\caption{\label{fig:bhpop_mdot}The Full Sample exhibits a weak, but noticeable
+bimodality in accretion rate space. We fit two log-normal distributions
+to the raw distribution, and impose a strict cutoff on the accretion
+rate, eliminating most of the anomalously low-accreting population.}
+>>>>>>> Stashed changes
 \end{figure}
 
 
@@ -175,11 +277,23 @@ relationship between $M$ and $\dot{M}$ using linear least-squares
 \begin{equation}
 \log\left(\dot{M}\right)=0.869\log\left(M_{BH}\right)-10.358.\label{eq:int_relation}
 \end{equation}
+<<<<<<< Updated upstream
 This relationship reflects the intrinsic properties of the simulation's black holes,
 and is independent of any models.
 \begin{figure}
 \centering{}\includegraphics[clip]{Figures/Illustris2_bhpop_hist2d}
 \protect\caption{\label{fig:bhpop_hist2d}Illustris-2 Black hole accretion rate as a function of black hole mass for our sample of BHs. The best-fit power-law relationship between $M$ and $\dot{M}$ for the sample of Illustris-2 BHs (green), after imposing an accretion rate threshold, is overlaid onto a two-dimensional histogram of the same population (orange).}
+=======
+This relationship reflects the intrinsic properties of the simulation,
+and is independent of any models.
+\begin{figure}
+\centering{}\includegraphics[clip]{Figures/Illustris2_bhpop_hist2d}
+\protect\caption{\label{fig:bhpop_hist2d}Black hole accretion rate as a function of
+black hole mass for the Illustrist-2 simulation for our sample of
+. The best-fit power-law relationship between $M$ and $\dot{M}$
+for the sample of Illustris-2 BHs, after imposing an accretion rate
+threshold. The fit is overlaid onto a histogram of the same population.}
+>>>>>>> Stashed changes
 \end{figure}
 
 
@@ -189,7 +303,14 @@ is shown in Figure \ref{fig:Fp} and defined as
 \begin{equation}
 \log L_{R}=0.6\log L_{x}+0.78\log M_{BH}+7.33
 \end{equation}
+<<<<<<< Updated upstream
 where the $L_{R}$ is the radio luminosity, $L_{X}$ is the X-ray luminosity, and $M_{BH}$ is the mass of the black hole. From this relation, the accretion-powered X-ray luminosity can be expressed as
+=======
+where the $L_{R}$ is the radio luminosity, $L_{X}$ is the X-ray
+luminosity, and $M_{BH}$ is the mass of the black hole. From this
+relation, the accretion-powered X-ray luminosity can be expressed
+as
+>>>>>>> Stashed changes
 
 \begin{equation}
 \log L_{x}=\log M+q\log\dot{m}+K_{2}\;,\label{eq:LxFP}
@@ -227,14 +348,22 @@ L_{x}=0.1947L_{bol}+1.656\times10^{-15}\;.
 
 
 Assuming the BH is only emitting at 10\% off the Eddington luminosity
+<<<<<<< Updated upstream
 and by means of the Elvis Template the X-ray luminosity for the BH is
+=======
+and by means of the Elvis Template the X-luminosity for the BH is
+>>>>>>> Stashed changes
 given by
 
 \begin{equation}
 L_{x}=623.04M+1.656\times10^{-15}\;.\label{eq:Lx_propto_m}
 \end{equation}
 By assuming a thin disk approximation with 10\% efficiency we get
+<<<<<<< Updated upstream
 that the X-ray luminosity for the BH is given by
+=======
+that the X-luminosity for the BH is given by
+>>>>>>> Stashed changes
 
 \begin{equation}
 L_{x}=4.64\times10^{19}\dot{M}+1.656\times10^{-15}\;,\label{eq:Lx_propto_mdot}
@@ -243,9 +372,15 @@ for all the cases the masses, accretion rates and luminosities are
 measured in $M_{\odot}$, $M_{\odot}s^{-1}$ and $L_{\odot}$. With
 equations \ref{eq:Lx_propto_m} and \ref{eq:Lx_propto_mdot} and using
 the equation \ref{eq:LxFP}. The fundamental plane equation can be
+<<<<<<< Updated upstream
 rewritten in terms of mass, accretion rate, k and q. By using the intrinsic mass to 
 accretion relation fround above, Equation \ref{eq:int_relation}, the fundamental 
 plane can be expressed with only 3 variables.
+=======
+rewritten in terms of mass, accretion rate, k and q. By means of using
+the intrinsic mass to accretion relation, equation \ref{eq:int_relation},
+the fundamental plane can be express with only 3 variables.
+>>>>>>> Stashed changes
 
 \begin{multline}
 log_{10}(9.03\times10^{18}\dot{M}+1.656\times10^{-15})+1.115log_{10}(\dot{M})\\
@@ -265,7 +400,11 @@ in terms of $k$. We find a high correlation between the values of
 $q$ and $k$. Since we hope to reproduce the slope $q$ from M03,
 which does not provide typical values for $k$, we must approach this
 in a rather roundabout manner. We assume that both approximations
+<<<<<<< Updated upstream
 for $L_{x}$ are equally good, and will yield similar results. We then 
+=======
+for $L_{x}$ are equally good, and will yield similar results, and
+>>>>>>> Stashed changes
 combine \ref{eq:Lx_propto_m} and \ref{eq:Lx_propto_mdot} with the
 relationship found between $M$ and $\dot{M}$ given by
 
@@ -276,7 +415,11 @@ log_{10}(a_{1}+\frac{b}{M})-dqlog_{10}(M)+eq\\
 where $a_{1}$, $a_{2}$, and $b$ are obtained from converting simulation
 units to physical units; and $d$ and $e$ are the slope and the intercept
 of the power-law found above. We find that $a_{1}=623.04$, $a_{2}=9.03\times10^{18}$,
+<<<<<<< Updated upstream
 $b=1.656\times10^{-15}$, $d=0.869$, and $e=-17.855$.\textbf{These constants
+=======
+$b=1.656\times10^{-15}$, $d=0.869$, and $e=-17.855$.\textbf{These
+>>>>>>> Stashed changes
 need units.}
 
 A value of $q$ is found for each black hole by inputting values of
@@ -284,9 +427,15 @@ $M$ and $\dot{M}$, and solving for $q$ using Newton-Raphson numerical
 root-finding. For the distribution of black holes in our Illustris-2
 sample, the distribution of $q$ values is shown in \ref{fig:q_nr_hist}.
 The distribution of $q$ values obtained is strongly peaked at around
+<<<<<<< Updated upstream
 $.068$, with a mean of $.0693$. This result contrasts starkly with M03's 
 thin-disk result of $q = 0.5$.
 
+=======
+$.068$, with a mean of $.0693$.
+
+\textbf{What does Figure 4 tell us? It's never mentioned.}
+>>>>>>> Stashed changes
 \begin{figure}
 \centering{}\includegraphics[clip]{Figures/elvis_template} \protect\caption{\label{fig:Elvis_template}The data points from the BH luminosities
 over plot with the best-fit linear relation between $L_{x}$ and $L_{bol}$
