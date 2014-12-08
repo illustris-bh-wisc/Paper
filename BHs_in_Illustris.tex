@@ -37,8 +37,7 @@ Here is our abstract.
 Since the earliest simulations of the formation and evolution of disk
 galaxies, the problem of stability of the gas in the disk has been
 a key issue \citep[e.g., ][]{lucy1977anumerical}. One prominent example
-of this is the so-called 'angular-momentum catastrophe' \citep{navarro1994accretion}
-in which the specific angular momentum of simulated disks is smaller
+of this is the so-called `angular-momentum catastrophe' \citep{navarro1994accretion} in which the specific angular momentum of simulated disks is smaller
 than values observed in real galaxies by an order of magnitude- resulting
 in disks with sizes smaller than observations by a similar factor.
 Further, the gas in the simulated disks cools too quickly, causing
@@ -122,7 +121,7 @@ a seed mass of $1.42\times10^{5}M_{\odot}$ are placed in dark matter
 halos of mass greater than $7.1\times10^{10}M_{\odot}$\citep{sijacki2014theillustris}.
 The black hole seeds are allowed to grow through gas accretion or
 through mergers with other black holes. At $z=0$, there are 32,542
-black holes in total with 3965 black holes more massive than $10^{7}M_{\odot}$.\textbf{Let's
+black holes in total with 3,965 black holes more massive than $10^{7}M_{\odot}$.\textbf{Let's
 add some details about the BH prescription so we can talk about it
 in the discussion.}
 
@@ -135,11 +134,10 @@ simulation gives the mass and accretion rate for each BH. We first
 eliminate all BH particles with $M=0$ or $\dot{{\rm M}}=0$, which
 we assume to be unphysical. We will hereafter refer to the remaining
 population (admittedly somewhat anomalously) as the Full Illustris-2
-Black Hole Sample. Analyzing those two properties for the whole sample
-set we found there are some BH with really low accretion rates (Figure
-\ref{fig:bhpop_full}). Since we are attempting to fit a linear relationship
-effectively between mass an accretion rate, such anomalously low accretion
-rate black holes should be omitted.\textbf{The language here needs
+Black Hole Sample. Examining those two properties for the whole sample
+reveals a `knee' in the BH distribution in $M$-$\.{M}$ space (Figure
+\ref{fig:bhpop_full}). We argue that if accretion rate and X-ray luminoristy are indeed linearly related, accretion rates on the order of $10^{-9} M_{\odot}/yr$ (or lower) should not be detectable in the X-ray bands at cosmological distances. Additionally, the presence of the low-accreting population skews the $M$-$\.M$ fit severely: since we are attempting to fit a linear relationship,
+effectively between mass and accretion rate, such anomalously low-accreting black holes should be omitted.\textbf{The language here needs
 a bit of cleanup and turned into more of a narrative. Try to stay
 away from subjective language like ``really low'' and stick with
 quantitative measures. How did you determine that 10\textasciicircum{}-20
@@ -147,27 +145,18 @@ is a silly value for BH accretion?}
 
 We accomplished this by first noting that the main sequence of black
 holes follows roughly a log-normal distribution in accretion rate
-space, centered around approximately $\dot{M}_{BH}=10^{-12.5}M_{\odot}/s$.
+space, centered around approximately $\dot{M}_{BH}=10^{-5}M_{\odot}/yr$.
 However, there also exists a small, secondary population centered
-around approximately $\dot{M}_{BH}=10^{-15.7}M\odot/s$ (see Figure
+around approximately $\dot{M}_{BH}=10^{-9}M_{\odot}/yr$ (see Figure
 \ref{fig:bhpop_mdot}). To produce a clean sample of accreting black
 holes, we require an accretion rate of $\ge10^{-8.19}\; M_{\odot}yr^{-1}$
 giving us a total of $23,277$ for our final sample black holes with
 masses $4.3\times10^{4.3}M_{\odot}\le M_{BH}\le5.85\times10^{10}M_{\odot}$.
 \begin{figure}
-\includegraphics[clip]{Figures/Illustris2_bhpop_full} \protect\caption{\label{fig:bhpop_full}Each light blue dot represents a single black
-hole. Two populations are apparent: a quiescent group and a much larger
-accreting population. \textbf{Figure captions need to explain what
-is on the Figure rather than what the figure tells us (that's what
-the text is for!). Be sure to give the units for the axes and mention
-any meaning of colors, symbols, etc. (see Fig. \ref{fig:Fp} for an
-example).}}
+\includegraphics[clip]{Figures/Illustris2_bhpop_full} \protect\caption{\label{fig:bhpop_full}The Full Illustris-2 Black Hole Sample, in mass-accretion rate space. Each light blue dot represents a single black hole, with mass in units of $M_{\odot}$ and accretion rate in units of $M_{\odot} yr^{-1}$.}
 \end{figure}
 \begin{figure}
-\includegraphics[clip]{Figures/Illustris2_bhpop_mdot} \protect\caption{\label{fig:bhpop_mdot}The Full Sample exhibits a weak, but noticeable
-bimodality in accretion rate space. We fit two log-normal distributions
-to the raw distribution, and impose a strict cutoff on the accretion
-rate, eliminating most of the anomalously low-accreting population.}
+\includegraphics[clip]{Figures/Illustris2_bhpop_mdot} \protect\caption{\label{fig:bhpop_mdot}The Full Sample exhibits a weak, but noticeable bimodality in accretion rate space. We fit two log-normal distributions to the raw distribution. The green Gaussian profile denotes the high-accreting population, and the small, red Gaussian profile denotes the low-aacreting population. We impose a strict cutoff at on the accretion rate at the peak of the red profile, eliminating most of the anomalously low-accreting population.}
 \end{figure}
 
 
@@ -183,15 +172,11 @@ relationship between $M$ and $\dot{M}$ using linear least-squares
 \begin{equation}
 \log\left(\dot{M}\right)=0.869\log\left(M_{BH}\right)-10.358.\label{eq:int_relation}
 \end{equation}
-This relationship reflects the intrinsic properties of the simulation,
+This relationship reflects the intrinsic properties of the simulation's black holes,
 and is independent of any models.
 \begin{figure}
 \centering{}\includegraphics[clip]{Figures/Illustris2_bhpop_hist2d}
-\protect\caption{\label{fig:bhpop_hist2d}Black hole accretion rate as a function of
-black hole mass for the Illustrist-2 simulation for our sample of
-. The best-fit power-law relationship between $M$ and $\dot{M}$
-for the sample of Illustris-2 BHs, after imposing an accretion rate
-threshold. The fit is overlaid onto a histogram of the same population.}
+\protect\caption{\label{fig:bhpop_hist2d}Illustris-2 Black hole accretion rate as a function of black hole mass for our sample of BHs. The best-fit power-law relationship between $M$ and $\dot{M}$ for the sample of Illustris-2 BHs (green), after imposing an accretion rate threshold, is overlaid onto a two-dimensional histogram of the same population (orange).}
 \end{figure}
 
 
@@ -201,10 +186,7 @@ is shown in Figure \ref{fig:Fp} and defined as
 \begin{equation}
 \log L_{R}=0.6\log L_{x}+0.78\log M_{BH}+7.33
 \end{equation}
-where the $L_{R}$ is the radio luminosity, $L_{X}$ is the X-ray
-luminosity, and $M_{BH}$ is the mass of the black hole. From this
-relation, the accretion-powered X-ray luminosity can be expressed
-as
+where the $L_{R}$ is the radio luminosity, $L_{X}$ is the X-ray luminosity, and $M_{BH}$ is the mass of the black hole. From this relation, the accretion-powered X-ray luminosity can be expressed as
 
 \begin{equation}
 \log L_{x}=\log M+q\log\dot{m}+K_{2}\;,\label{eq:LxFP}
@@ -242,14 +224,14 @@ L_{x}=0.1947L_{bol}+1.656\times10^{-15}\;.
 
 
 Assuming the BH is only emitting at 10\% off the Eddington luminosity
-and by means of the Elvis Template the X-luminosity for the BH is
+and by means of the Elvis Template the X-ray luminosity for the BH is
 given by
 
 \begin{equation}
 L_{x}=623.04M+1.656\times10^{-15}\;.\label{eq:Lx_propto_m}
 \end{equation}
 By assuming a thin disk approximation with 10\% efficiency we get
-that the X-luminosity for the BH is given by
+that the X-ray luminosity for the BH is given by
 
 \begin{equation}
 L_{x}=4.64\times10^{19}\dot{M}+1.656\times10^{-15}\;,\label{eq:Lx_propto_mdot}
@@ -260,7 +242,7 @@ equations \ref{eq:Lx_propto_m} and \ref{eq:Lx_propto_mdot} and using
 the equation \ref{eq:LxFP}. The fundamental plane equation can be
 rewritten in terms of mass, accretion rate, k and q. By means of using
 the intrinsic mass to accretion relation, equation \ref{eq:int_relation},
-the fundamental plane can be express with only 3 variables.
+the fundamental plane can be expressed with only 3 variables.
 
 \begin{multline}
 log_{10}(9.03\times10^{18}\dot{M}+1.656\times10^{-15})+1.115log_{10}(\dot{M})\\
