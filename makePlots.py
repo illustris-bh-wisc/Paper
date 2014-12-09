@@ -25,19 +25,19 @@ def save_fig(name):
 
 axisLabelTextSize = 9
 
-#data = np.loadtxt('elvis_templates.csv',delimiter=',')
+data = np.loadtxt('elvis_templates.csv',delimiter=',')
 
-#L_bol = data[:,0]*1e14
-#L_xray = data[:,1]*1e14
-#p = np.poly1d(np.polyfit(L_bol,L_xray,1))
-#fig = make_fig()
-#plt.scatter(L_bol,L_xray, marker='+', c='blue')
-#plt.plot(L_bol,p(L_bol),'r-')
-#plt.xlim(L_bol.min(),L_bol.max())
-#plt.ylim(L_xray.min(),L_xray.max())
-#plt.ylabel(r'X-ray Luminosity [$10^{-14}\,L_\odot$]', size=axisLabelTextSize)
-#plt.xlabel(r'Bolometric Luminosity [$10^{-14}\,L_\odot$]', size=axisLabelTextSize)
-#save_fig('Figures/elvis_template.png')
+L_bol = data[:,0]*1e14
+L_xray = data[:,1]*1e14
+p = np.poly1d(np.polyfit(L_bol,L_xray,1))
+fig = make_fig()
+plt.scatter(L_bol,L_xray, marker='+', c='blue')
+plt.plot(L_bol,p(L_bol),'r-')
+plt.xlim(L_bol.min(),L_bol.max())
+plt.ylim(L_xray.min(),L_xray.max())
+plt.ylabel(r'X-ray Luminosity [$10^{-14}\,L_\odot$]', size=axisLabelTextSize)
+plt.xlabel(r'Bolometric Luminosity [$10^{-14}\,L_\odot$]', size=axisLabelTextSize)
+save_fig('Figures/elvis_template.png')
 
 # Read catalog
 basedir = 'Illustris-3'
@@ -48,17 +48,17 @@ cond = (catalog.GroupBHMass != 0) * (catalog.GroupBHMdot > 0)
 
 # Convert to physical units (M_sun, M_sun/yr)
 bm_phys = 4.3e10 * catalog.GroupBHMass[cond]
-bmdot_phys = 9.72e-7 * 3.14e7 * catalog.GroupBHMdot[cond]
+bmdot_phys = 9.72e-7 * catalog.GroupBHMdot[cond]
 
-#fig = make_fig()
-#x = np.log10(bm_phys)
-#y = np.log10(bmdot_phys)
-#plt.scatter(x,y, marker='.', alpha=0.1)
-#plt.xlim(x.min(),x.max())
-#plt.ylim(y.min(),y.max())
-#plt.ylabel(r'$\log(\dot{M}_{BH} [M_{\odot}\,yr^{-1}])$',fontsize=axisLabelTextSize)
-#plt.xlabel(r'$\log(M_{BH} [M_{\odot}])$',fontsize=axisLabelTextSize)
-#save_fig('Figures/Illustris2_bhpop_full.png')
+fig = make_fig()
+x = np.log10(bm_phys)
+y = np.log10(bmdot_phys)
+plt.scatter(x,y, marker='.', alpha=0.1)
+plt.xlim(x.min(),x.max())
+plt.ylim(y.min(),y.max())
+plt.ylabel(r'$\log(\dot{M}_{BH} [M_{\odot}\,s^{-1}])$',fontsize=axisLabelTextSize)
+plt.xlabel(r'$\log(M_{BH} [M_{\odot}])$',fontsize=axisLabelTextSize)
+save_fig('Figures/Illustris2_bhpop_full.png')
 
 fig = make_fig()
 clf = mixture.GMM(n_components=2, covariance_type='full')
@@ -67,16 +67,16 @@ m1, m2 = clf.means_
 w1, w2 = clf.weights_
 c1, c2 = clf.covars_
 
-#histdist = matplotlib.pyplot.hist(np.log10(bmdot_phys), 100, normed=True)
-#plotgauss1 = lambda x: plt.plot(x,w1*matplotlib.mlab.normpdf(x,m1,np.sqrt(c1))[0], linewidth=2)
-#plotgauss2 = lambda x: plt.plot(x,w2*matplotlib.mlab.normpdf(x,m2,np.sqrt(c2))[0], linewidth=2)
-#plotgauss1(histdist[1])
-#plotgauss2(histdist[1])
-#plt.xlim(-22,1)
-#plt.ylim(0,0.55)
-#plt.xlabel('Accretion Rate [$log(M_{\odot} yr^{-1})$]', size=axisLabelTextSize)
-#plt.ylabel('fraction of sample', size=axisLabelTextSize)
-#save_fig('Figures/Illustris2_bhpop_mdot.png')
+histdist = matplotlib.pyplot.hist(np.log10(bmdot_phys), 100, normed=True)
+plotgauss1 = lambda x: plt.plot(x,w1*matplotlib.mlab.normpdf(x,m1,np.sqrt(c1))[0], linewidth=2)
+plotgauss2 = lambda x: plt.plot(x,w2*matplotlib.mlab.normpdf(x,m2,np.sqrt(c2))[0], linewidth=2)
+plotgauss1(histdist[1])
+plotgauss2(histdist[1])
+plt.xlim(-22,1)
+plt.ylim(0,0.55)
+plt.xlabel('Accretion Rate [$log(M_{\odot}\,s^{-1})$]', size=axisLabelTextSize)
+plt.ylabel('fraction of sample', size=axisLabelTextSize)
+save_fig('Figures/Illustris2_bhpop_mdot.png')
 
 print "m2 = %.3f" % m2
 
@@ -90,15 +90,15 @@ print "Min BH mass = %.3E" % bm_phys.min()
 print "Max BH mass = %.3E" % bm_phys.max()
 print "M+Mdot fit parms = " , p
 
-#fig = make_fig()
-#plt.plot(np.linspace(5., 11., 100), np.polyval(p, np.linspace(5., 11., 100)), c = 'g', linestyle = '--')
-#H, xedges, yedges = np.histogram2d(np.log10(bm_phys), np.log10(bmdot_phys), 30)
-#plt.imshow(H.T, origin='lower', extent=[xedges[0],xedges[-1],yedges[0],yedges[-1]], cmap='Oranges', norm=LogNorm(), aspect='auto', interpolation='none')
-#cbar = plt.colorbar(shrink=0.8, pad=0.03)
-#cbar.ax.tick_params(labelsize=6)
-#plt.ylabel(r'$log(\dot{M}_{BH} [M_{\odot}\,yr^{-1}]$)', fontsize=axisLabelTextSize)
-#plt.xlabel(r'$log(M_{BH} [M_{\odot}])$', fontsize=axisLabelTextSize)
-#save_fig('Figures/Illustris2_bhpop_hist2d.png')
+fig = make_fig()
+plt.plot(np.linspace(5., 11., 100), np.polyval(p, np.linspace(5., 11., 100)), c = 'g', linestyle = '--')
+H, xedges, yedges = np.histogram2d(np.log10(bm_phys), np.log10(bmdot_phys), 30)
+plt.imshow(H.T, origin='lower', extent=[xedges[0],xedges[-1],yedges[0],yedges[-1]], cmap='Oranges', norm=LogNorm(), aspect='auto', interpolation='none')
+cbar = plt.colorbar(shrink=0.8, pad=0.03)
+cbar.ax.tick_params(labelsize=6)
+plt.ylabel(r'$log(\dot{M}_{BH} [M_{\odot}\,s^{-1}]$)', fontsize=axisLabelTextSize)
+plt.xlabel(r'$log(M_{BH} [M_{\odot}])$', fontsize=axisLabelTextSize)
+save_fig('Figures/Illustris2_bhpop_hist2d.png')
 
 ## finding q and K using convergence
 # General idea:
