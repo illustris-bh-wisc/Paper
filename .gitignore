@@ -14,3 +14,8 @@ Illustris-3
 Figures.zip
 *.*~
 *.pyc
+*.brf
+*.fdb_latexmk
+*.out
+*.gz
+*.tar
