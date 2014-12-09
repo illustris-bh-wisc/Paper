@@ -580,30 +580,24 @@ The BH population in Illustris was analysed using the low resolution simulation
 , which we assume to be unphysical.
  We will hereafter refer to the remaining population (admittedly somewhat
  anomalously) as the Full Illustris-2 Black Hole Sample.
- Analyzing those two properties for the whole sample set we found there
- are some BH with really low accretion rates (Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:bhpop_full"
-
+ We argue that if accretion rate and X-ray luminosity are indeed linearly
+ related, accretion rates on the order of 
+\begin_inset Formula $\sim10^{-15.7}M_{\odot}s^{-1}$
 \end_inset
 
-).
- Since we are attempting to fit a linear relationship effectively between
- mass an accretion rate, such anomalously low accretion rate black holes
- should be omitted.
+ and lower should not be detectable in the X-ray bands at cosmological distances.
+ 
 \series bold
-The language here needs a bit of cleanup and turned into more of a narrative.
- Try to stay away from subjective language like 
-\begin_inset Quotes eld
+I know this is hand-wavey, I'll fix it later.
+
+\series default
+ Additionally, the presence of the low-accreting population skews the 
+\begin_inset Formula $M-\dot{M}$
 \end_inset
 
-really low
-\begin_inset Quotes erd
-\end_inset
-
- and stick with quantitative measures.
- How did you determine that 10^-20 is a silly value for BH accretion?
+ fit severely: since we are attempting to fit a linear relationship, effectively
+ between mass and accretion rate, such anomalously low-accreting black holes
+ should be omitted.
 \end_layout
 
 \begin_layout Standard
@@ -627,12 +621,24 @@ reference "fig:bhpop_mdot"
 \end_inset
 
 ).
- To produce a clean sample of accreting black holes, we require an accretion
- rate of 
-\begin_inset Formula $\ge10^{-8.19}\; M_{\odot}yr^{-1}$
+ To produce a clean sample of accreting black holes, we fit the Full Sample
+ with two Gaussian profiles (in 
+\begin_inset Formula $\log\dot{M}$
 \end_inset
 
- giving us a total of 
+-space) using astroML's one-dimensional Gaussian mixture 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "vanderplas2012introduction"
+
+\end_inset
+
+, and require an accretion rate of 
+\begin_inset Formula $\ge10^{-15.7}\; M_{\odot}yr^{-1}$
+\end_inset
+
+ (the arithmetic mean of the low-accreting samle).
+ This yields a total of 
 \begin_inset Formula $23,277$
 \end_inset
 
@@ -647,6 +653,7 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename Figures/Illustris2_bhpop_full.png
 	display false
@@ -664,24 +671,17 @@ name "fig:bhpop_full"
 
 \end_inset
 
-Each light blue dot represents a single black hole.
- Two populations are apparent: a quiescent group and a much larger accreting
- population.
+The full Illustris-2 black hole sample in mass-accretion rate space.
+ Each light blue dot represents a single black hole with mass in units of
  
-\series bold
-Figure captions need to explain what is on the Figure rather than what the
- figure tells us (that's what the text is for!).
- Be sure to give the units for the axes and mention any meaning of colors,
- symbols, etc.
- (see Fig.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Fp"
-
+\begin_inset Formula $M_{\odot}$
 \end_inset
 
- for an example).
+ and accretion rate in units of 
+\begin_inset Formula $M_{\odot}s^{-1}$
+\end_inset
+
+.
 \end_layout
 
 \end_inset
@@ -698,6 +698,7 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename Figures/Illustris2_bhpop_mdot.png
 	display false
@@ -717,9 +718,11 @@ name "fig:bhpop_mdot"
 
 The Full Sample exhibits a weak, but noticeable bimodality in accretion
  rate space.
- We fit two log-normal distributions to the raw distribution, and impose
- a strict cutoff on the accretion rate, eliminating most of the anomalously
- low-accreting population.
+ We fit two log-normal distributions to the raw distribution.
+ The green Gaussian profile denotes the high-accreting population, and the
+ small, red Gaussian profile denotes the low-accreting population.
+ We impose a strict cutoff on the accretion rate at the peak of the red
+ profile, eliminating most of the anomalously low-accreting population.
 \end_layout
 
 \end_inset
@@ -767,7 +770,7 @@ reference "fig:bhpop_hist2d"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\log\left(\dot{M}\right)=0.869\log\left(M_{BH}\right)-10.358.\label{eq:int_relation}
+\log\left(\dot{M}\right)=0.869\log\left(M_{BH}\right)-17.855.\label{eq:int_relation}
 \end{equation}
 
 \end_inset
@@ -777,7 +780,7 @@ This relationship reflects the intrinsic properties of the simulation, and
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -799,7 +802,7 @@ name "fig:bhpop_hist2d"
 \end_inset
 
 Black hole accretion rate as a function of black hole mass for the Illustrist-2
- simulation for our sample of .
+ simulation for our sample.
  The best-fit power-law relationship between 
 \begin_inset Formula $M$
 \end_inset
@@ -808,8 +811,9 @@ Black hole accretion rate as a function of black hole mass for the Illustrist-2
 \begin_inset Formula $\dot{M}$
 \end_inset
 
- for the sample of Illustris-2 BHs, after imposing an accretion rate threshold.
- The fit is overlaid onto a histogram of the same population.
+ is shown in green.
+ Colors correspond to a two-dimensional density of the same plot sampled
+ in log space.
 \end_layout
 
 \end_inset
