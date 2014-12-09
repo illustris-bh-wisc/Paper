@@ -44,11 +44,11 @@ basedir = 'Illustris-3'
 snapid = 135
 catalog = readsubfHDF5.subfind_catalog(basedir,snapid)
 
-cond = (catalog.GroupBHMass != 0) * (catalog.GroupBHMdot > 0)
+goodMassMask = (catalog.GroupBHMass > 0) * (catalog.GroupBHMdot > 0)
 
 # Convert to physical units (M_sun, M_sun/yr)
-bm_phys = 4.3e10 * catalog.GroupBHMass[cond]
-bmdot_phys = 9.72e-7 * catalog.GroupBHMdot[cond]
+bm_phys = 4.3e10 * catalog.GroupBHMass[goodMassMask]
+bmdot_phys = 9.72e-7 * catalog.GroupBHMdot[goodMassMask]
 
 fig = make_fig()
 x = np.log10(bm_phys)
@@ -80,8 +80,11 @@ save_fig('Figures/Illustris2_bhpop_mdot.png')
 
 print "m2 = %.3f" % m2
 
-bmdot_phys = bmdot_phys[ np.log10(bmdot_phys) > m2]
-bm_phys = bm_phys[ np.log10(bmdot_phys) > m2 ]
+# Make a cutoff at the mean of the second component
+goodFitMassMask = np.log10(bmdot_phys) > m2
+
+bmdot_phys = bmdot_phys[goodFitMassMask]
+bm_phys = bm_phys[goodFitMassMask]
 p, residual, rank, singular_values, rcond = np.polyfit( np.log10(bm_phys), np.log10(bmdot_phys), 1, full = True )
 relation_params = p
 
@@ -99,6 +102,25 @@ cbar.ax.tick_params(labelsize=6)
 plt.ylabel(r'$log(\dot{M}_{BH} [M_{\odot}\,s^{-1}]$)', fontsize=axisLabelTextSize)
 plt.xlabel(r'$log(M_{BH} [M_{\odot}])$', fontsize=axisLabelTextSize)
 save_fig('Figures/Illustris2_bhpop_hist2d.png')
+
+
+# Plot M_BH vs M_gas for each subhalo
+groupGasMass = catalog.GroupMassType[:,0]
+groupGasMass = groupGasMass[goodMassMask]
+groupGasMass = 1.26e6 * groupGasMass[goodFitMassMask]
+
+fig = make_fig()
+x = np.log10(groupGasMass)
+y = np.log10(bmdot_phys)
+z = np.log10(bm_phys)
+plt.scatter(x,y, c=z, alpha=0.5, marker='.', linewidths=0, cmap='hsv')
+cbar = plt.colorbar(shrink=0.8, pad=0.03)
+cbar.ax.tick_params(labelsize=6)
+plt.xlim(x.min(),x.max())
+plt.ylim(y.min(),y.max())
+plt.ylabel(r'$\log(\dot{M}_{BH} [M_{\odot}\,s^{-1}])$',fontsize=axisLabelTextSize)
+plt.xlabel(r'$\log(M_{gas} [M_{\odot}])$',fontsize=axisLabelTextSize)
+save_fig('Figures/Mdot_vs_Mgas.png')
 
 ## finding q and K using convergence
 # General idea:

@@ -1439,17 +1439,9 @@ Can we find out when the BH was seeded? I want to make a plot of seed time
 \begin_inset Formula $\dot{M}$
 \end_inset
 
- known either empirically or from theory?
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Talk about Figure 5.
-\end_layout
-
-\begin_layout Standard
+ known either empirically or from theory? Talk about Figure 5.
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status collapsed
@@ -1459,7 +1451,6 @@ status collapsed
 \begin_inset Graphics
 	filename Figures/Mdot_vs_Mgas.png
 	display false
-	scale 75
 
 \end_inset
 
@@ -1467,6 +1458,8 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
+
+\series bold
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -1492,6 +1485,10 @@ Black hole accretion rate of as a function of the total gas mass in each
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
