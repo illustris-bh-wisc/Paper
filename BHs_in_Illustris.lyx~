@@ -423,8 +423,10 @@ key "sijacki2014theillustris"
 \end_inset
 
 .
+<<<<<<< Updated upstream
  The black hole seeds are allowed to grow through gas accretion or through
  mergers with other black holes.
+=======
  The black hole seeds are allowed to grow through gas accretion, parametrized
  in terms of Eddington limited Bondi-Hoyle-Lyttleton (BHL)-like accretion
  (
@@ -536,6 +538,7 @@ is the radiative efficiency.
 This simply gives the mass to energy conversion efficiency set by the amount
  of energy that can be extracted from the innermost stable orbit of an accretion
  disk around a black hole.
+>>>>>>> Stashed changes
  At 
 \begin_inset Formula $z=0$
 \end_inset
@@ -546,9 +549,13 @@ This simply gives the mass to energy conversion efficiency set by the amount
 \end_inset
 
 .
+<<<<<<< Updated upstream
 \series bold
 Let's add some details about the BH prescription so we can talk about it
  in the discussion.
+=======
+ 
+>>>>>>> Stashed changes
 \end_layout
 
 \begin_layout Section
