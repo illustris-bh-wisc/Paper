@@ -1222,7 +1222,14 @@ reference "fig:q_nr_hist"
 \begin_layout Standard
 
 \series bold
-What does Figure 4 tell us? It's never mentioned.
+What does Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Elvis_template"
+
+\end_inset
+
+ tell us? It's never mentioned.
 \series default
 
 \begin_inset Float figure

@@ -1,0 +1,71 @@
+\section{Introduction}
+
+Since the earliest simulations of the formation and evolution of disk
+galaxies, the problem of stability of the gas in the disk has been
+a key issue \citep[e.g., ][]{lucy1977anumerical}. One prominent example
+of this is the so-called 'angular-momentum catastrophe' \citep{navarro1994accretion}
+in which the specific angular momentum of simulated disks is smaller
+than values observed in real galaxies by an order of magnitude- resulting
+in disks with sizes smaller than observations by a similar factor.
+Further, the gas in the simulated disks cools too quickly, causing
+it to spiral into the disk's center and form a bulge. However, not
+all disk galaxies contain a bulge. Clearly, then, the simulations
+are not faithfully representing the physical processes governing disk
+formation in nature. The currently accepted solution to this problem
+is the introduction of one or more feedback mechanisms which deposit
+energy into the gas, heating it, and preventing its aggregation in
+the disk's center.
+
+One popular mechanism to drive this feedback is the accretion of gas
+onto a central black hole. These so-called active galactic nuclei
+(AGN) are believed to be important in the evolution of galaxies as
+a mechanism for quenching star formation \citep[see ][and references therein]{hopkins2008acosmological}.
+The presence of AGN in $\sim3\%$ of local galaxies at $z\lesssim0.7$
+\citep{haggard2010thefield} with an increasing fraction at higher
+redshifts \citep{martini2013thecluster} indicates that this mechanism
+may contribute a non-negligible source of energy for evolving galaxies.
+Additionally, the invocation of an AGN feedback mechanism has been
+shown to be necessary in order to recreate the present-day color-magnitude
+relation of massive red galaxies \citep{springel2005blackholes}.
+Thus, in order to understand galaxy evolution, it is important to
+understand the physics governing black hole accretion.
+
+The question then remains as to how we can tie properties of AGN in
+simulations back to observations to further constrain the physics
+of this feedback mechanism. Fortunately, there are distinctive signatures
+of AGN activity that can be used to probe for the presence of an accreting
+black hole. For example, relativistic jets emitting synchrotron radiation
+in the radio are a strong indicator of recent AGN activity \textbf{{[}CITATION{]}}.
+Additionally, X-ray emission typically in excess $\sim10^{42}\,{\rm ergs}\,{\rm s^{-1}}$
+stemming from inverse-Compton scattering of electrons in the corona
+around the accretion disk of the black hole provides a clear signpost
+of a strong source of ionizing energy. \citet[hereafter, M03]{merloni2003afundamental}
+investigate the properties of $\sim100$ local galaxies containing
+an AGN with compact emission in both the X-ray and radio and show
+that the radio luminosity is well correlated both with the mass of
+the central black hole and the galaxy's X-ray luminosity. In that
+work, M03 define a fundamental plane combining the two observational
+signatures (X-ray and radio luminosities) with the accretion flow
+onto the black hole. The existence of the fundamental plane suggests
+that the physical processes regulating the conversion of gas accreted
+onto the black hole into radiative energy could be universal across
+the entire scale of black hole masses.
+
+Clearly, then, an important component of modern galaxy formation simulations
+is the correct implementation of AGN feedback. In this work, we test
+the accuracy of the AGN feedback mechanism in the state-of-the-art
+hydrodynamical cosmological simulation Illustris-2. Specifically,
+we aim to determine the fundamental plane of black hole activity using
+the mass and accretion rates in the simulation and compare against
+those measured in M03. From this analysis, we can begin to understand
+how well state-of-the-art simulations replicate the real physics of
+black hole accretion and AGN feedback in the universe to better understand
+the relationship between AGN and the evolution of their host galaxies.
+
+This paper is structured as follows. In Section \ref{sec:illustris},
+we outline the implementation of the Illustris-2 simulations. Section
+\ref{sec:sample} discusses our sample of black holes extracted from
+Illustris-2. Section \ref{sec:analysis} we determine how the black
+holes in the Illustris-2 simulation coincide with the fundamental
+plane of M03. In Section~\ref{sec:discussion} we discuss our results,
+and Section \ref{sec:conclusions} presents our final conclusions.

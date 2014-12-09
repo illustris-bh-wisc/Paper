@@ -1,0 +1,54 @@
+\section{The Illustris Simulation}
+
+\label{sec:illustris}The Illustris Project is a series of large-scale
+cosmological hydrodynamical simulations of galaxy formation \citep{vogelsberger2014properties}.
+The simulation consists of large cosmological situations in a periodic
+box with $106.5\;{\rm Mpc}$, simulated with different physics at
+different resolutions. It assumes a standard flat $\Lambda$CDM cosmology
+with $\Omega_{m,0}=0.2726$, $\Omega_{\Lambda,0}=0.72746$, $\Omega_{b,0}=0.0456$,
+and $H_{0}=70.4$ km s$^{-1}$ Mpc$^{-1}$ from the Wilkinson Microwave
+Anisotropy Probe 9-year data release \citep{hinshaw2013nineyear}.
+
+In the Illustris simulations, collisionless black hole particles with
+a seed mass of $1.42\times10^{5}M_{\odot}$ are placed in dark matter
+halos of mass greater than $7.1\times10^{10}M_{\odot}$\citep{sijacki2014theillustris}.
+The black hole seeds are allowed to grow through gas accretion or
+through mergers with other black holes. The black hole seeds are allowed
+to grow through gas accretion, parametrized in terms of Eddington
+limited Bondi-Hoyle-Lyttleton (BHL)-like accretion (\citet{bondi1952accretion,bondihoyle1044}),
+or through mergers with other black holes. BHL is a non-spherical
+accretion flow which develops when a compact object moves relative
+to a uniform gas cloud. The BHL accretion rate on the black hole is
+given by
+
+\begin{equation}
+\dot{M}_{B}=\frac{4\pi G^{2}M_{BH}^{2}\rho}{(c_{s}^{2}+v^{2})^{3/2}},
+\end{equation}
+
+
+where $\rho$ and $c_{s}$ are the density and sound speed of the
+gas, respectively, $\alpha$ is a dimensionless parameter, and $v$
+is the velocity of the black hole relative to the gas. Then, the accretion
+is limited to the Eddinton rate,
+
+\begin{equation}
+\dot{M}_{Edd}=\frac{4\pi G^{2}M_{BH}m_{p}}{\epsilon_{r}\sigma_{T}c},
+\end{equation}
+
+
+where $m_{p}$ is the proton mass, $\sigma_{T}$is the Thompson cross-section
+and $\epsilon_{r}$is the radiative efficiency. The radiaitve efficiency
+is related to the radiated bolometric luminosity, $L_{B}$, and accretion
+rate, $\dot{M}_{BH}$, by
+\begin{lyxcode}
+\begin{equation}
+\epsilon_{r}=\frac{L_{r}}{\dot{M}_{BH}}
+\end{equation}
+
+\end{lyxcode}
+This simply gives the mass to energy conversion efficiency set by
+the amount of energy that can be extracted from the innermost stable
+orbit of an accretion disk around a black hole. At $z=0$, there are
+32,542 black holes in total with 3965 black holes more massive than
+$10^{7}M_{\odot}$.\textbf{Let's add some details about the BH prescription
+so we can talk about it in the discussion.}
