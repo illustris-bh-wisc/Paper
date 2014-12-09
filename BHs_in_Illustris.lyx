@@ -194,10 +194,6 @@ key "hopkins2008acosmological"
 
 \end_inset
 
- and stabilizing the gas disk 
-\series bold
-[CITATION]
-\series default
 .
  The presence of AGN in 
 \begin_inset Formula $\sim3\%$
@@ -770,7 +766,7 @@ reference "fig:bhpop_hist2d"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\log\left(\dot{M}\right)=0.869\log\left(M_{BH}\right)-17.855.\label{eq:int_relation}
+\log\dot{M}=0.869\log M_{BH}-17.855.\label{eq:int_relation}
 \end{equation}
 
 \end_inset
@@ -780,7 +776,7 @@ This relationship reflects the intrinsic properties of the simulation, and
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -866,7 +862,7 @@ where the
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\log L_{x}=\log M+q\log\dot{m}+K_{2}\;,\label{eq:LxFP}
+\log L_{x}=\log M+q\log\dot{M}+K_{2}\;,\label{eq:LxFP}
 \end{equation}
 
 \end_inset
@@ -1040,8 +1036,8 @@ reference "eq:int_relation"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{multline}
-log_{10}(9.03\times10^{18}\dot{M}+1.656\times10^{-15})+1.115log_{10}(\dot{M})\\
--\frac{e}{d}qlog_{10}(\dot{M})+k=0
+\log\left(9.03\times10^{18}\dot{M}+1.656\times10^{-15}\right)+1.115\log\dot{M}\\
+-\frac{e}{d}q\log\dot{M}+k=0
 \end{multline}
 
 \end_inset
@@ -1049,8 +1045,8 @@ log_{10}(9.03\times10^{18}\dot{M}+1.656\times10^{-15})+1.115log_{10}(\dot{M})\\
 
 \begin_inset Formula 
 \begin{multline}
-log_{10}(623.04+\frac{1.656\times10^{-15}}{M})\\
--0.869qlog_{10}(M)+17.855-k=0
+\log\left(623.04+\frac{1.656\times10^{-15}}{M}\right)\\
+-0.869q\log M+17.855-k=0
 \end{multline}
 
 \end_inset
@@ -1125,8 +1121,8 @@ reference "eq:Lx_propto_mdot"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{multline*}
-log_{10}(a_{1}+\frac{b}{M})-dqlog_{10}(M)+eq\\
--log_{10}(a_{2}\dot{M}+b)+\frac{1}{d}log_{10}(\dot{M})-\frac{e}{d}qlog_{10}(\dot{M})=0\;,
+\log\left(a_{1}+\frac{b}{M}\right)-dq\log M+eq\\
+-\log\left(a_{2}\dot{M}+b\right)+\frac{1}{d}\log\dot{M}-\frac{e}{d}q\log\dot{M}=0\;,
 \end{multline*}
 
 \end_inset
