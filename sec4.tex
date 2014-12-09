@@ -57,10 +57,17 @@ luminosity for BH can be approximated by two different models. The
 first one takes into account the Eddington luminosity of the BH, which
 relates it to the mass, and the second uses the thin disk approximation,
 which relates the luminosity to the accretion rate. Both of these
-approximations for the luminosity gives the bolometric luminosity.
+approximations for the luminosity give the bolometric luminosity.
 To get the X-ray luminosity from the bolometric luminosity we use
-the \citet{elvis1994atlasof} data sample to calculate a template
-. The equation relation from the Elvis template is given by
+the \citet{elvis1994atlasof} data sample to calculate a template. 
+We accomplish this by fitting a straight line to that data, 
+as in Figure \ref{fig:Elvis_template}... 
+\textbf{we need more discussion here of the Elvis templates, and 
+whether we can justify drawing a line. Diego should go through unit
+conversions once again to make sure ($10^{-14} L_{\odot}$is super small!)
+We could justify our use of this line by showing that all SMBHs in 
+Illustris are low-enough mass where we shouldn't care (b/c of 
+Eddington $L_{bol} \propto M$) }
 
 \begin{equation}
 L_{x}=0.1947L_{bol}+1.656\times10^{-15}\;.
@@ -86,7 +93,8 @@ equations \ref{eq:Lx_propto_m} and \ref{eq:Lx_propto_mdot} and using
 the equation \ref{eq:LxFP}. The fundamental plane equation can be
 rewritten in terms of mass, accretion rate, k and q. By means of using
 the intrinsic mass to accretion relation, equation \ref{eq:int_relation},
-the fundamental plane can be express with only 3 variables.
+the fundamental plane can be expressed with only 3 variables \textbf{which 
+three variables?}
 
 \begin{multline}
 \log\left(9.03\times10^{18}\dot{M}+1.656\times10^{-15}\right)+1.115\log\dot{M}\\
@@ -97,18 +105,13 @@ the fundamental plane can be express with only 3 variables.
 -0.869q\log M+17.855-k=0
 \end{multline}
 
-
-The parameter $q$ holds the information on the properties of the
-BH. Hence the adequate value that fits the simulations had to be found.
-Using the Newton-Raphson numerical root-finding method for the two
-equations and evaluating throw the whole data sample, $q$ is express
-in terms of $k$. We find a high correlation between the values of
+We find a high correlation between the values of
 $q$ and $k$. Since we hope to reproduce the slope $q$ from M03,
 which does not provide typical values for $k$, we must approach this
 in a rather roundabout manner. We assume that both approximations
-for $L_{x}$ are equally good, and will yield similar results, and
-combine \ref{eq:Lx_propto_m} and \ref{eq:Lx_propto_mdot} with the
-relationship found between $M$ and $\dot{M}$ given by
+for $L_{x}$ are equally good and will yield similar results, and we
+then combine \ref{eq:Lx_propto_m} and \ref{eq:Lx_propto_mdot} with the
+empirical relationship found above between $M$ and $\dot{M}$:
 
 \begin{multline*}
 \log\left(a_{1}+\frac{b}{M}\right)-dq\log M+eq\\
@@ -116,19 +119,26 @@ relationship found between $M$ and $\dot{M}$ given by
 \end{multline*}
 where $a_{1}$, $a_{2}$, and $b$ are obtained from converting simulation
 units to physical units; and $d$ and $e$ are the slope and the intercept
-of the power-law found above. We find that $a_{1}=623.04$, $a_{2}=9.03\times10^{18}$,
+of the power-law found above. We find that 
+$a_{1}=623.04$, $a_{2}=9.03\times10^{18}$,
 $b=1.656\times10^{-15}$, $d=0.869$, and $e=-17.855$.\textbf{These
 need units.}
 
+We can compare the Illustris SMBH population with the population 
+found by M03, by comparing the slopes of the fundamental plane $q$ 
+in each case. After re-writing the thin-disk and mass-accretion 
+relation, we can eliminate the normalization constant $k$, and 
+find the value of $q$ for each SMBH. Using the Newton-Raphson 
+numerical root-finding method for the two equations and evaluating 
+through the whole data sample, $q$ is expressed in terms of $k$. 
 A value of $q$ is found for each black hole by inputting values of
 $M$ and $\dot{M}$, and solving for $q$ using Newton-Raphson numerical
 root-finding. For the distribution of black holes in our Illustris-2
 sample, the distribution of $q$ values is shown in \ref{fig:q_nr_hist}.
 The distribution of $q$ values obtained is strongly peaked at around
-$.068$, with a mean of $.0693$.
+$.068$, with a mean of $.0693$. The median value is $0.685_{-.0050}^{+.0038}$.
+\textbf{These are the 14th, 50th, and 86th percentile values. Is there a better way to state this?}
 
-\textbf{What does Figure \ref{fig:Elvis_template} tell us? It's never
-mentioned.}
 \begin{figure}
 \centering{}\includegraphics[clip]{Figures/elvis_template} \protect\caption{\label{fig:Elvis_template}The data points from the BH luminosities
 over plot with the best-fit linear relation between $L_{x}$ and $L_{bol}$
@@ -141,6 +151,5 @@ for the sample.}
 
 \protect\caption{\label{fig:q_nr_hist}A log-histogram of the number of best-fit $q$
 values, with one value found per Illustris-2 black hole, using Newton-Raphson
-root finding. The maximum likelihood is (SOMEWHERE), with (SOME NUMBER
-OF) black holes, and the mean value is $0.693$.}
+root finding. The maximum likelihood is $0.684$, with $3911$ black holes, and the mean value is $0.693$.}
 \end{figure}

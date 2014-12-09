@@ -9,6 +9,8 @@
 *.ps
 *.eps
 *.bmp
+*.aux
+*.brf
 illustrisbh/*
 Illustris-3
 Figures.zip
@@ -19,3 +21,6 @@ Figures.zip
 *.out
 *.gz
 *.tar
+*.fdb_latexmk
+BHs_in_Illustris.synctex.gz
+BHs_in_IllustrisNotes.bib
