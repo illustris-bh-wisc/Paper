@@ -149,6 +149,6 @@ _mdot = np.linspace(np.min(bmdot_phys),np.max(bmdot_phys),200)
 x = _m + opt[0]*_mdot + opt[1]
 y = epsilon*(_mdot + np.log10(alpha)) + eta
 plt.plot(x,y, linestyle='--', c='r', linewidth=2)
-plt.ylabel(r'$\log(L_{x}\,[L_\odot])$',fontsize=axisLabelTextSize)
-plt.xlabel(r"$\log(M)+{0:.3}\log(\dot{{M}})+{1:.3}$".format(opt[0],opt[1]),fontsize=axisLabelTextSize)
+plt.ylabel(r'$\log\,L_{x}$',fontsize=axisLabelTextSize)
+plt.xlabel(r"$\log M+{0:.3}\log\dot{{M}}+{1:.3}$".format(opt[0],opt[1]),fontsize=axisLabelTextSize)
 save_fig('Figures/fp_fit.png')
