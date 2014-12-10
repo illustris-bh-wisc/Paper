@@ -2,41 +2,38 @@ from illustrisbh import readsubfHDF5
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import rc
-import os
 import sys
-import emcee
-from matplotlib.colors import LogNorm
 from sklearn import mixture
-import matplotlib.mlab
+import matplotlib.mlab as ml
 import scipy.optimize as spopt
+from matplotlib.colors import LogNorm
 
 rc('text', usetex=True)
 
 def make_fig():
-	fig = plt.figure(figsize=(3.5,2),dpi=400)
-	ax = fig.add_subplot(111)
-	ax.tick_params(axis='x',labelsize=8)
-	ax.tick_params(axis='y',labelsize=8)
-	return fig
+    fig = plt.figure(figsize=(3.5,2),dpi=400)
+    ax = fig.add_subplot(111)
+    ax.tick_params(axis='x',labelsize=8)
+    ax.tick_params(axis='y',labelsize=8)
+    return fig
 
 def save_fig(name):
-	fig.savefig(name,dpi=400,bbox_inches='tight',pad_inches=0.0)
-
+    fig.savefig(name,dpi=400,bbox_inches='tight',pad_inches=0.02)
 
 axisLabelTextSize = 9
 
 data = np.loadtxt('elvis_templates.csv',delimiter=',')
 
-L_bol = data[:,0]*1e14
-L_xray = data[:,1]*1e14
+L_bol = data[:,0]
+L_xray = data[:,1]
 p = np.poly1d(np.polyfit(L_bol,L_xray,1))
 fig = make_fig()
 plt.scatter(L_bol,L_xray, marker='+', c='blue')
 plt.plot(L_bol,p(L_bol),'r-')
-plt.xlim(L_bol.min(),L_bol.max())
-plt.ylim(L_xray.min(),L_xray.max())
-plt.ylabel(r'X-ray Luminosity [$10^{-14}\,L_\odot$]', size=axisLabelTextSize)
-plt.xlabel(r'Bolometric Luminosity [$10^{-14}\,L_\odot$]', size=axisLabelTextSize)
+plt.xlim(L_bol.min(),L_bol.max()*1.002)
+plt.ylim(L_xray.min(),L_xray.max()*1.002)
+plt.ylabel(r'$\log(L_{x} [L_{\odot}])$', size=axisLabelTextSize)
+plt.xlabel(r'$\log(L_{bol} [L_\odot])$', size=axisLabelTextSize)
 save_fig('Figures/elvis_template.png')
 
 # Read catalog
@@ -67,13 +64,13 @@ m1, m2 = clf.means_
 w1, w2 = clf.weights_
 c1, c2 = clf.covars_
 
-histdist = matplotlib.pyplot.hist(np.log10(bmdot_phys), 100, normed=True)
-plotgauss1 = lambda x: plt.plot(x,w1*matplotlib.mlab.normpdf(x,m1,np.sqrt(c1))[0], linewidth=2)
-plotgauss2 = lambda x: plt.plot(x,w2*matplotlib.mlab.normpdf(x,m2,np.sqrt(c2))[0], linewidth=2)
+histdist = plt.hist(np.log10(bmdot_phys), 100, normed=True)
+plotgauss1 = lambda x: plt.plot(x,w1*ml.normpdf(x,m1,np.sqrt(c1))[0], linewidth=2)
+plotgauss2 = lambda x: plt.plot(x,w2*ml.normpdf(x,m2,np.sqrt(c2))[0], linewidth=2)
 plotgauss1(histdist[1])
 plotgauss2(histdist[1])
-plt.xlim(-22,1)
-plt.ylim(0,0.55)
+plt.xlim(histdist[1].min(),histdist[1].max())
+plt.ylim(histdist[0].min(),histdist[0].max())
 plt.xlabel('Accretion Rate [$log(M_{\odot}\,s^{-1})$]', size=axisLabelTextSize)
 plt.ylabel('fraction of sample', size=axisLabelTextSize)
 save_fig('Figures/Illustris2_bhpop_mdot.png')
@@ -122,42 +119,36 @@ plt.ylabel(r'$\log(\dot{M}_{BH} [M_{\odot}\,s^{-1}])$',fontsize=axisLabelTextSiz
 plt.xlabel(r'$\log(M_{gas} [M_{\odot}])$',fontsize=axisLabelTextSize)
 save_fig('Figures/Mdot_vs_Mgas.png')
 
-## finding q and K using convergence
-# General idea:
-# 
-# For Lx ~ M
-# Define function f(M,q,k) = log10(a + b/M) - 0.694 q log10(M) + 16.3769 - k = 0
-# a = 623.04
-# b = 1.656e-15
-# find zeros
-# 
-# For Lx ~ \.{M}
-# Define function f(\.{M},q,k) = log10(a + b/\.{M}) - 0.694 q log10(\.{M}(M)} + 16.3769 - k = 0
-# a = 9.03e18
-# b = 1.656e-15
-# \.{M}(M) is given by the orange plot
-# 
-# solve system of equations:
-# 
-# log10(a1 + b/M) - d*q*log10(M) + e*q - log10(a2*Mdot + b) + 1/d * log10(Mdot) - e/d * q * log10(Mdot) = 0
-def f(q, m, mdot):
-    a1 = 623.04
-    b = 1.656e-15
-    d = relation_params[0]
-    a2 = 9.03e18
-    e = -relation_params[1]
-    return np.log10(a1 + b/m) - d*q*np.log(m) + e*q - np.log10(a2*mdot + b) + (1. - e*q)/d * np.log10(mdot)
+## finding q and K
+alpha = 4.648e19
+epsilon = 0.866
+eta = 4.705
 
-sols = []
-for i in range(len(bmdot_phys)):
-    sol = spopt.root(f, [1.], args = (bm_phys[i], (1/3.14e7)*bmdot_phys[i]))
-    sols.append(sol.x[0])
+def thin_disk_approx(m_mdot, q, k):
+    m = m_mdot[0]
+    mdot = m_mdot[1]
+    return epsilon * np.log10(mdot*alpha) + eta - np.log10(m) - q*np.log10(mdot) - k
+
+m_mdot = [bm_phys, bmdot_phys]
+bm_phys = np.log10(bm_phys)
+bmdot_phys = np.log10(bmdot_phys)
 
 fig = make_fig()
-(n,bins,_) = plt.hist(sols, bins=50, log=True)
-plt.axvline(np.mean(sols), c = 'r', linewidth = 3, linestyle = '--')
-plt.xlim(bins.min(),bins.max())
-plt.ylim(n.min(),n.max())
-plt.xlabel(r'best-fit $q$ value', size=axisLabelTextSize)
-plt.ylabel('$N_{BH}$',size=axisLabelTextSize)
-save_fig('Figures/q_nr_hist.png')
+opt, cov = spopt.curve_fit(thin_disk_approx, m_mdot, np.zeros(len(bm_phys)))
+x = bm_phys + opt[0] * bmdot_phys + opt[1]
+y = epsilon*(bmdot_phys + np.log10(alpha)) + eta
+plt.scatter(x,y, marker='.', color='b', alpha=0.2, linewidths=0, s=7)
+plt.xlim(x.min(),x.max())
+plt.ylim(y.min(),y.max())
+
+# "interpolate" m and mdot onto a finer line
+_m = np.linspace(np.min(bm_phys),np.max(bm_phys),200)
+_mdot = np.linspace(np.min(bmdot_phys),np.max(bmdot_phys),200)
+
+# Use that finer line to draw the fit
+x = _m + opt[0]*_mdot + opt[1]
+y = epsilon*(_mdot + np.log10(alpha)) + eta
+plt.plot(x,y, linestyle='--', c='r', linewidth=2)
+plt.ylabel(r'$\log(L_{x}\,[L_\odot])$',fontsize=axisLabelTextSize)
+plt.xlabel(r"$\log(M)+{0:.3}\log(\dot{{M}})+{1:.3}$".format(opt[0],opt[1]),fontsize=axisLabelTextSize)
+save_fig('Figures/fp_fit.png')
