@@ -20,7 +20,6 @@ in green. Colors correspond to a two-dimensional density of the same
 plot sampled in log space.}
 \end{figure}
 
-
 The fundamental plane of black holes in the local universe from M03
 is shown in Figure \ref{fig:Fp} and defined as
 
@@ -28,19 +27,18 @@ is shown in Figure \ref{fig:Fp} and defined as
 \log L_{R}=0.6\log L_{x}+0.78\log M_{BH}+7.33
 \end{equation}
 where the $L_{R}$ is the radio luminosity, $L_{X}$ is the X-ray
-luminosity, and $M_{BH}$ is the mass of the black hole. From this
-relation, the accretion-powered X-ray luminosity can be expressed
-as
+luminosity, and $M_{BH}$ is the mass of the black hole. This is expression relates different observable properties of BH and is an expression that corelates the feedback of the BH.  Never the less,  there are two more expressions that relates the intrinsic properties of the BH. This relations uses either one of the luminosities  (radio or X-ray) the mass and the accretion rate of the BH.  For the purpose of this analysis the BH relation that will be us is:
 
 \begin{equation}
-\log L_{x}=\log M+q\log\dot{M}+K_{2}\;,\label{eq:LxFP}
+\log L_{x}=\log M+q\log\dot{M}+K\;,\label{eq:LxFP}
 \end{equation}
-where $K_{2}$ is a normalization constant. Depending on the accretion
+where $K$ is a normalization constant. Depending on the accretion
 flow model, the efficiency coefficient $q$ ranges from 0.5 (optically
 thick thin disk accretion flow) to 2.3 (advection dominated accretion
 flow). The most significant aspect of the fundamental plane is that
 it is a correlation which we can apply our general knowledge of galactic
 BHs to AGNs and vice versa.
+
 \begin{figure}
 \centering{}\includegraphics[clip,scale=0.35]{Figures/FP} \protect\caption{\label{fig:Fp}Edge-on view of the fundamental plane from M03 relating
 the black hole mass to the radio and X-ray luminosities. Symbols indicate
@@ -49,44 +47,25 @@ to the mass of the black hole in units of $\log\left({\rm M}_{\odot}\right)$.
 Several well-known galaxies hosting an AGN are listed, as well.}
 \end{figure}
 
-
-The fundamental plane of the BHs relates the mass, X-ray luminosity
-and accretion rate. Because the luminosity is not an intrinsic property
-of the simulation, it had to be calculated. The calculation of the
-luminosity for BH can be approximated by two different models. The
-first one takes into account the Eddington luminosity of the BH, which
-relates it to the mass, and the second uses the thin disk approximation,
-which relates the luminosity to the accretion rate. Both of these
-approximations for the luminosity give the bolometric luminosity.
-To get the X-ray luminosity from the bolometric luminosity we use
-the \citet{elvis1994atlasof} data sample to calculate a template. 
-We accomplish this by fitting a straight line to that data, 
-as in Figure \ref{fig:Elvis_template}... 
-\textbf{we need more discussion here of the Elvis templates, and 
-whether we can justify drawing a line. Diego should go through unit
-conversions once again to make sure ($10^{-14} L_{\odot}$is super small!)
-We could justify our use of this line by showing that all SMBHs in 
-Illustris are low-enough mass where we shouldn't care (b/c of 
-Eddington $L_{bol} \propto M$) }
+In other to model and calculate the parameters in the the BH fundamental plane, a method to calculate the luminosity is needed.  This is due the fact that the luminosity in not an intrinsic property of the simulation. The calculation of the luminosity for BH can be approximated by two different models. The first one takes into account the Eddington luminosity of the BH. The second method uses the thin disk approximation. Both of these approaches for the luminosity give the bolometric luminosity. To get the X-ray luminosity from the bolometric luminosity we use the \citet{elvis1994atlasof} data sample to calculate a template.  The data contains the bolometric luminosity, the X-ray flux and the redshift for 47 BH.  The first step is to convert the flux to a luminosity by means of the redshift. The data is fit using a power law given by (\ref{fig:Elvis_template}):
 
 \begin{equation}
 L_{x}=0.1947L_{bol}+1.656\times10^{-15}\;.
 \end{equation}
 
-
-Assuming the BH is only emitting at 10\% off the Eddington luminosity
-and by means of the Elvis Template the X-luminosity for the BH is
-given by
+Considering the BHs have luminosity given by the Eddington luminosity with an efficiency of 10\% Eddington.  The 10\% efficiency is a general condition found in BH \textbf[{REFERENCE]}.  Using the Elvis Template the correlation between mass and bolumetic luminosity can be changed to mass and X-ray luminosity given by:
 
 \begin{equation}
 L_{x}=623.04M+1.656\times10^{-15}\;.\label{eq:Lx_propto_m}
 \end{equation}
-By assuming a thin disk approximation with 10\% efficiency we get
-that the X-luminosity for the BH is given by
+
+The second model consider the luminosity mechanism to be proportional
+to a thin disk accretion. For this case the efficiency is allso  10\% and that will be the case use in all the BH.  The thin disk luminosity relates the luminosity to the accretion rate.  Using the Elvis template the X-ray luminosity is express in terms of the accretion rate by:
 
 \begin{equation}
 L_{x}=4.64\times10^{19}\dot{M}+1.656\times10^{-15}\;,\label{eq:Lx_propto_mdot}
 \end{equation}
+
 for all the cases the masses, accretion rates and luminosities are
 measured in $M_{\odot}$, $M_{\odot}s^{-1}$ and $L_{\odot}$. With
 equations \ref{eq:Lx_propto_m} and \ref{eq:Lx_propto_mdot} and using
@@ -96,48 +75,6 @@ the intrinsic mass to accretion relation, equation \ref{eq:int_relation},
 the fundamental plane can be expressed with only 3 variables \textbf{which 
 three variables?}
 
-\begin{multline}
-\log\left(9.03\times10^{18}\dot{M}+1.656\times10^{-15}\right)+1.115\log\dot{M}\\
--\frac{e}{d}q\log\dot{M}+k=0
-\end{multline}
-\begin{multline}
-\log\left(623.04+\frac{1.656\times10^{-15}}{M}\right)\\
--0.869q\log M+17.855-k=0
-\end{multline}
-
-We find a high correlation between the values of
-$q$ and $k$. Since we hope to reproduce the slope $q$ from M03,
-which does not provide typical values for $k$, we must approach this
-in a rather roundabout manner. We assume that both approximations
-for $L_{x}$ are equally good and will yield similar results, and we
-then combine \ref{eq:Lx_propto_m} and \ref{eq:Lx_propto_mdot} with the
-empirical relationship found above between $M$ and $\dot{M}$:
-
-\begin{multline*}
-\log\left(a_{1}+\frac{b}{M}\right)-dq\log M+eq\\
--\log\left(a_{2}\dot{M}+b\right)+\frac{1}{d}\log\dot{M}-\frac{e}{d}q\log\dot{M}=0\;,
-\end{multline*}
-where $a_{1}$, $a_{2}$, and $b$ are obtained from converting simulation
-units to physical units; and $d$ and $e$ are the slope and the intercept
-of the power-law found above. We find that 
-$a_{1}=623.04$, $a_{2}=9.03\times10^{18}$,
-$b=1.656\times10^{-15}$, $d=0.869$, and $e=-17.855$.\textbf{These
-need units.}
-
-We can compare the Illustris SMBH population with the population 
-found by M03, by comparing the slopes of the fundamental plane $q$ 
-in each case. After re-writing the thin-disk and mass-accretion 
-relation, we can eliminate the normalization constant $k$, and 
-find the value of $q$ for each SMBH. Using the Newton-Raphson 
-numerical root-finding method for the two equations and evaluating 
-through the whole data sample, $q$ is expressed in terms of $k$. 
-A value of $q$ is found for each black hole by inputting values of
-$M$ and $\dot{M}$, and solving for $q$ using Newton-Raphson numerical
-root-finding. For the distribution of black holes in our Illustris-2
-sample, the distribution of $q$ values is shown in \ref{fig:q_nr_hist}.
-The distribution of $q$ values obtained is strongly peaked at around
-$.068$, with a mean of $.0693$. The median value is $0.685_{-.0050}^{+.0038}$.
-\textbf{These are the 14th, 50th, and 86th percentile values. Is there a better way to state this?}
 
 \begin{figure}
 \centering{}\includegraphics[clip]{Figures/elvis_template} \protect\caption{\label{fig:Elvis_template}The data points from the BH luminosities
@@ -146,10 +83,11 @@ for the sample.}
 \end{figure}
 \begin{figure}
 \begin{centering}
-\includegraphics{Figures/q_nr_hist}
+\includegraphics{Figures/fp_fit}
 \par\end{centering}
 
-\protect\caption{\label{fig:q_nr_hist}A log-histogram of the number of best-fit $q$
-values, with one value found per Illustris-2 black hole, using Newton-Raphson
-root finding. The maximum likelihood is $0.684$, with $3911$ black holes, and the mean value is $0.693$.}
+\protect\caption{\label{fig:q_nr_hist}The fit to the fundamental plane
+$\log\left(L_x\,[L_\odot]\right) = \log M+0.378\log\dot{{M}}+9.47$ using our sample. The
+X-ray luminosities are in units of $L_\odot$, the masses in units of $M_\odot$, and the
+accretion rate in units of $M_{\odot}\,s^{-1}$.}
 \end{figure}
