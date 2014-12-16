@@ -22,10 +22,13 @@ def save_fig(name):
 
 axisLabelTextSize = 9
 
+# H_0 = 70.4 km/s/Mpc
+massConversionFactor = 4.3e10 #1e10 / 0.704
+
 data = np.loadtxt('elvis_templates.csv',delimiter=',')
 
-L_bol = data[:,0]
-L_xray = data[:,1]
+L_bol = data[:,0]-np.log10(3.846e33)
+L_xray = data[:,1]-np.log10(3.846e33)
 p = np.poly1d(np.polyfit(L_bol,L_xray,1))
 fig = make_fig()
 plt.scatter(L_bol,L_xray, marker='+', c='blue')
@@ -43,8 +46,8 @@ catalog = readsubfHDF5.subfind_catalog(basedir,snapid)
 
 goodMassMask = (catalog.GroupBHMass > 0) * (catalog.GroupBHMdot > 0)
 
-# Convert to physical units (M_sun, M_sun/yr)
-bm_phys = 4.3e10 * catalog.GroupBHMass[goodMassMask]
+# Convert to physical units (M_sun, M_sun/s)
+bm_phys = massConversionFactor * catalog.GroupBHMass[goodMassMask]
 bmdot_phys = 9.72e-7 * catalog.GroupBHMdot[goodMassMask]
 
 fig = make_fig()
@@ -91,7 +94,7 @@ print "Max BH mass = %.3E" % bm_phys.max()
 print "M+Mdot fit parms = " , p
 
 fig = make_fig()
-plt.plot(np.linspace(5., 11., 100), np.polyval(p, np.linspace(5., 11., 100)), c = 'g', linestyle = '--')
+#plt.plot(np.linspace(5., 11., 100), np.polyval(p, np.linspace(5., 11., 100)), c = 'g', linestyle = '--')
 H, xedges, yedges = np.histogram2d(np.log10(bm_phys), np.log10(bmdot_phys), 30)
 plt.imshow(H.T, origin='lower', extent=[xedges[0],xedges[-1],yedges[0],yedges[-1]], cmap='Oranges', norm=LogNorm(), aspect='auto', interpolation='none')
 cbar = plt.colorbar(shrink=0.8, pad=0.03)
@@ -104,25 +107,44 @@ save_fig('Figures/Illustris2_bhpop_hist2d.png')
 # Plot M_BH vs M_gas for each subhalo
 groupGasMass = catalog.GroupMassType[:,0]
 groupGasMass = groupGasMass[goodMassMask]
-groupGasMass = 1.26e6 * groupGasMass[goodFitMassMask]
+groupGasMass = massConversionFactor * groupGasMass[goodFitMassMask]
+
+groupMass = massConversionFactor * catalog.GroupMass[goodMassMask]
+groupMass = groupMass[goodFitMassMask]
 
 fig = make_fig()
-x = np.log10(groupGasMass)
+x = np.log10(groupGasMass / groupMass) + 2
 y = np.log10(bmdot_phys)
 z = np.log10(bm_phys)
-plt.scatter(x,y, c=z, alpha=0.5, marker='.', linewidths=0, cmap='hsv')
+plt.scatter(x,y, c=z, alpha=0.5, marker='.', s=3,linewidths=0, cmap='brg')
 cbar = plt.colorbar(shrink=0.8, pad=0.03)
+cbar.set_label(r'$\log(M_{BH} [M_{\odot}])$',fontsize=8)
 cbar.ax.tick_params(labelsize=6)
 plt.xlim(x.min(),x.max())
 plt.ylim(y.min(),y.max())
-plt.ylabel(r'$\log(\dot{M}_{BH} [M_{\odot}\,s^{-1}])$',fontsize=axisLabelTextSize)
-plt.xlabel(r'$\log(M_{gas} [M_{\odot}])$',fontsize=axisLabelTextSize)
-save_fig('Figures/Mdot_vs_Mgas.png')
+plt.xticks(np.linspace(-0.5,1.5,5),['{0:.1f}\%'.format(x) for x in 10**np.linspace(-0.5,1.5,5)])
+plt.ylabel(r'$\log(\dot{M}_{BH}\,[M_{\odot}\,s^{-1}])$',fontsize=axisLabelTextSize)
+plt.xlabel('$M_{gas}/M_{halo}$',fontsize=axisLabelTextSize)
+save_fig('Figures/Mdot_vs_GasFrac.png')
 
-## finding q and K
+fig = make_fig()
+x = np.log10(groupGasMass)
+y = np.log10(groupMass)
+z = np.log10(bm_phys)
+plt.scatter(x,y, c=z, alpha=0.5, marker='.',s=7,linewidths=0, cmap='brg')
+cbar = plt.colorbar(shrink=0.8, pad=0.03)
+cbar.set_label(r'$\log(M_{BH} [M_{\odot}])$',fontsize=8)
+cbar.ax.tick_params(labelsize=6)
+plt.xlim(x.min(),x.max())
+plt.ylim(y.min(),y.max())
+plt.ylabel(r'$\log(M_{group} [M_{\odot}])$',fontsize=axisLabelTextSize)
+plt.xlabel(r'$\log(M_{gas} [M_{\odot}])$',fontsize=axisLabelTextSize)
+save_fig('Figures/Mgroup_vs_Mgas.png')
+
+# finding q and K
 alpha = 4.648e19
-epsilon = 0.866
-eta = 4.705
+epsilon = 0.8663
+eta = 0.2145
 
 def thin_disk_approx(m_mdot, q, k):
     m = m_mdot[0]

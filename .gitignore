@@ -11,6 +11,7 @@
 *.bmp
 *.aux
 *.brf
+output.dat
 illustrisbh/*
 Illustris-3
 Figures.zip
