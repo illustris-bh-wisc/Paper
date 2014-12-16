@@ -1,0 +1,585 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Black Hole Fundamental Plane in Illustris
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:analysis"
+
+\end_inset
+
+ To better understand the role of AGN in galaxy evolution, we turn to large
+ scale simulations with detailed gas physics and energy transport like those
+ found in the Illustris simulation.
+ To analyze the black hole feedback physics in the Illustris simulation,
+ we attempt to reconstruct the black hole fundamental plane from M03.
+ Starting with our sample of black holes from Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:sample"
+
+\end_inset
+
+, we apply several models of a accretion mechanisms to parametrized the
+ components of the fundamental plane.
+\end_layout
+
+\begin_layout Standard
+The fundamental plane from M03 is shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Fp"
+
+\end_inset
+
+ and defined as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\log L_{R}=0.6\log L_{x}+0.78\log M_{BH}+7.33
+\end{equation}
+
+\end_inset
+
+where the 
+\begin_inset Formula $L_{R}$
+\end_inset
+
+ is the radio luminosity, 
+\begin_inset Formula $L_{X}$
+\end_inset
+
+ is the X-ray luminosity, and 
+\begin_inset Formula $M_{BH}$
+\end_inset
+
+ is the mass of the black hole.
+ This expression, derived from empirical observations of accreting black
+ holes with masses ranging from 
+\begin_inset Formula $10-10^{9}M_{\odot}$
+\end_inset
+
+, correlates the energy output from the black hole with its mass.
+ Another way to parametrize the fundamental plane is using the mass, accretion
+ rate, and X-ray luminosity which is given by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\log L_{x}=\log M+q\log\dot{M}+K\;\label{eq:LxFP}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $K$
+\end_inset
+
+ is a normalization constant and 
+\begin_inset Formula $q$
+\end_inset
+
+ reflects the efficiency of the accretion mechanism.
+ In M03, a range of 
+\begin_inset Formula $q$
+\end_inset
+
+ values are given from 0.5 (optically-thick thin disk) to 2.3 (advection dominated
+ accretion flow) depending on the assumed accretion physics.
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Figures/FP.png
+	display false
+	scale 35
+	clip
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Fp"
+
+\end_inset
+
+Edge-on view of the fundamental plane from M03 relating the black hole mass
+ to the radio and X-ray luminosities.
+ Symbols indicate the type of emission-line galaxy of the host and colors
+ correspond to the mass of the black hole in units of 
+\begin_inset Formula $\log\left({\rm M}_{\odot}\right)$
+\end_inset
+
+.
+ Several well-known galaxies hosting an AGN are listed, as well.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since luminosities are not calculated in any band in the Illustris simulation,
+ and since the black hole fundamental plane (Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:LxFP"
+
+\end_inset
+
+) is expressed in terms of X-ray luminosity, we must express the X-ray luminosit
+y in terms of the quantities provided in the simulation, black hole mass
+ and accretion rate.
+ For the sake of variety, we will consider two models.
+ The first assumes a spherically-symmetric and symmetrically-accreting mass
+ surrounding the black hole:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+L_{bol}=3.2\times10^{3}M\;.\label{eq:Lbol_propto_m}
+\end{equation}
+
+\end_inset
+
+The second assumes an optically-thick thin disk of material surrounding
+ the black hole:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+L_{bol}=4.648\times10^{19}\dot{M}\;.\label{eq:Lbol_propto_dotm}
+\end{equation}
+
+\end_inset
+
+Both of these approaches for the luminosity give the bolometric luminosity.
+ To get the X-ray luminosity from the bolometric luminosity we use the 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "elvis1994atlasof"
+
+\end_inset
+
+ data sample as a template.
+ The template relates the bolometric luminosity and the X-ray 47 BH.
+ The data are fit using a power law given by Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Elvis_template"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+L_{x}=0.866L_{bol}+0.215\;.
+\end{equation}
+
+\end_inset
+
+Considering the BHs have luminosity given by the Eddington luminosity with
+ an efficiency of 10% Eddington.
+ The 10% efficiency is a general condition found in BH 
+\series bold
+[REFERENCE]
+\series default
+.
+ Using the Elvis Template the correlation between mass and bolumetic luminosity
+ can be changed to mass and X-ray luminosity given by:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+L_{x}=2.77E3M+0.215\;.\label{eq:Lx_propto_m}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The second model consider the luminosity mechanism to be proportional to
+ a thin disk accretion.
+ For this case the efficiency is allso 10% and that will be the case use
+ in all the BH.
+ The thin disk luminosity relates the luminosity to the accretion rate.
+ Using the Elvis template the X-ray luminosity is express in terms of the
+ accretion rate by:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+L_{x}=4.02E19\dot{M}+0.215\;,\label{eq:Lx_propto_mdot}
+\end{equation}
+
+\end_inset
+
+for all the cases the masses, accretion rates and luminosities are measured
+ in 
+\begin_inset Formula $M_{\odot}$
+\end_inset
+
+, 
+\begin_inset Formula $M_{\odot}s^{-1}$
+\end_inset
+
+ and 
+\begin_inset Formula $L_{\odot}$
+\end_inset
+
+.
+ With equations 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Lx_propto_m"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Lx_propto_mdot"
+
+\end_inset
+
+ and using the equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:LxFP"
+
+\end_inset
+
+.
+ The fundamental plane equation can be rewritten in terms of mass, accretion
+ rate, k and q.
+\end_layout
+
+\begin_layout Standard
+To solve the equation we use the Levenberg-Marquard (NLLS) algorithim.
+ For the thin-disk approximation 
+\begin_inset Formula $q=0.3865\pm0.0037$
+\end_inset
+
+ and 
+\begin_inset Formula $k=-4.425\pm0.0465$
+\end_inset
+
+.
+ For the Eddinton luminocity approximation 
+\begin_inset Formula $q=-0.0642\pm0.0005$
+\end_inset
+
+ and 
+\begin_inset Formula $k=20.107\pm0.006$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Figures/elvis_template.png
+	display false
+	clip
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Elvis_template"
+
+\end_inset
+
+The data points from the BH luminosities over plot with the best-fit linear
+ relation between 
+\begin_inset Formula $L_{x}$
+\end_inset
+
+ and 
+\begin_inset Formula $L_{bol}$
+\end_inset
+
+ for the sample.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Figures/fp_fit.png
+	display false
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:q_nr_hist"
+
+\end_inset
+
+The fit to the fundamental plane 
+\begin_inset Formula $\log\left(L_{x}\,[L_{\odot}]\right)=\log M+0.378\log\dot{{M}}+9.47$
+\end_inset
+
+ using our sample.
+ The X-ray luminosities are in units of 
+\begin_inset Formula $L_{\odot}$
+\end_inset
+
+, the masses in units of 
+\begin_inset Formula $M_{\odot}$
+\end_inset
+
+, and the accretion rate in units of 
+\begin_inset Formula $M_{\odot}\, s^{-1}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This relation allows us to construct a power-law relationship between 
+\begin_inset Formula $M$
+\end_inset
+
+ and 
+\begin_inset Formula $\dot{M}$
+\end_inset
+
+ using linear least-squares (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:bhpop_hist2d"
+
+\end_inset
+
+).
+ The best-fit is given by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\log\dot{M}=0.869\log M_{BH}-17.855.\label{eq:int_relation}
+\end{equation}
+
+\end_inset
+
+This relationship reflects the intrinsic properties of the simulation, and
+ is independent of any models.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Figures/Illustris2_bhpop_hist2d.png
+	display false
+	clip
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:bhpop_hist2d"
+
+\end_inset
+
+Black hole accretion rate as a function of black hole mass for the Illustrist-2
+ simulation for our sample.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+The best-fit power-law relationship between 
+\begin_inset Formula $M$
+\end_inset
+
+ and 
+\begin_inset Formula $\dot{M}$
+\end_inset
+
+ is shown in green.
+\end_layout
+
+\end_inset
+
+ Colors correspond to a two-dimensional density of the same plot sampled
+ in log space.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From any accretion mechanism, we can calculate the bolometric luminosity
+ of the AGN.
+ We use an empirical fit from
+\end_layout
+
+\begin_layout Standard
+To relate the X-ray luminosity with its bolometric luminosity from a particular
+ accretion mechanism, we use the Elvis template
+\begin_inset CommandInset citation
+LatexCommand citep
+key "elvis1994atlasof"
+
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

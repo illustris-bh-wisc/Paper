@@ -1,0 +1,276 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+Since the earliest simulations of the formation and evolution of disk galaxies,
+ the problem of stability of the gas in the disk has been a key issue 
+\begin_inset CommandInset citation
+LatexCommand citep
+before "e.g.,"
+key "lucy1977anumerical"
+
+\end_inset
+
+.
+ One prominent example of this is the so-called `angular-momentum catastrophe'
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "navarro1994accretion"
+
+\end_inset
+
+ in which the specific angular momentum of simulated disks is smaller than
+ values observed in real galaxies by an order of magnitude- resulting in
+ disks with sizes smaller than observations by a similar factor.
+ Further, the gas in the simulated disks cools too quickly, causing it to
+ spiral into the disk's center and form a bulge.
+ However, not all disk galaxies contain a bulge.
+ Clearly, then, the simulations are not faithfully representing the physical
+ processes governing disk formation in nature.
+ The currently accepted solution to this problem is the introduction of
+ one or more feedback mechanisms which deposit energy into the gas, heating
+ it, and preventing its aggregation in the disk's center.
+\end_layout
+
+\begin_layout Standard
+One popular mechanism to drive this feedback is the accretion of gas onto
+ a central black hole.
+ These so-called active galactic nuclei (AGN) are believed to be important
+ in the evolution of galaxies as a mechanism for quenching star formation
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "and references therein"
+before "see"
+key "hopkins2008acosmological"
+
+\end_inset
+
+.
+ The presence of AGN in 
+\begin_inset Formula $\sim3\%$
+\end_inset
+
+ of local galaxies at
+ 
+\begin_inset Formula $z\lesssim0.7$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "haggard2010thefield"
+
+\end_inset
+
+
+\lang english
+ with an increasing fraction at higher redshifts 
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "martini2013thecluster"
+
+\end_inset
+
+
+\lang english
+ indicates that this mechanism may contribute a non-negligible source of
+ energy for evolving galaxies.
+ Additionally, the invocation of an AGN feedback mechanism has been shown
+ to be necessary in order to recreate the present-day color-magnitude relation
+ of massive red galaxies 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "springel2005blackholes"
+
+\end_inset
+
+.
+ Thus, in order to understand galaxy evolution, it is important to understand
+ the physics governing black hole accretion.
+\end_layout
+
+\begin_layout Standard
+The question then remains as to how we can tie properties of AGN in simulations
+ back to observations to further constrain the physics of this feedback
+ mechanism.
+ Fortunately, there are distinctive signatures of AGN activity that can
+ be used to probe for the presence of an accreting black hole.
+ For example, relativistic jets emitting synchrotron radiation in the radio
+ are a strong indicator of recent AGN activity 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "jones1974"
+
+\end_inset
+
+.
+ Additionally, X-ray emission typically in excess 
+\begin_inset Formula $\sim10^{42}\,{\rm ergs}\,{\rm s^{-1}}$
+\end_inset
+
+ stemming from inverse-Compton scattering of electrons in the corona around
+ the accretion disk of the black hole provides a clear signpost of a strong
+ source of ionizing energy.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "hereafter, M03"
+key "merloni2003afundamental"
+
+\end_inset
+
+ investigate the properties of 
+\begin_inset Formula $\sim100$
+\end_inset
+
+ local galaxies containing an AGN with compact emission in both the X-ray
+ and radio and show that the radio luminosity is well correlated both with
+ the mass of the central black hole and the galaxy's X-ray luminosity.
+ In that work, M03 define a fundamental plane combining the two observational
+ signatures (X-ray and radio luminosities) with the accretion flow onto
+ the black hole.
+ The existence of the fundamental plane suggests that the physical processes
+ regulating the conversion of gas accreted onto the black hole into radiative
+ energy could be universal across the entire scale of black hole masses.
+\end_layout
+
+\begin_layout Standard
+Clearly, then, an important component of modern galaxy formation simulations
+ is the correct implementation of AGN feedback.
+ In this work, we test the accuracy of the AGN feedback mechanism in the
+ state-of-the-art hydrodynamical cosmological simulation Illustris-2.
+ Specifically, we aim to determine the fundamental plane of black hole activity
+ using the mass and accretion rates in the simulation and compare against
+ those measured in M03.
+ From this analysis, we can begin to understand how well state-of-the-art
+ simulations replicate the real physics of black hole accretion and AGN
+ feedback in the universe to better understand the relationship between
+ AGN and the evolution of their host galaxies.
+\end_layout
+
+\begin_layout Standard
+This paper is structured as follows.
+ In Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:illustris"
+
+\end_inset
+
+, we outline the implementation of the Illustris-2 simulations.
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:sample"
+
+\end_inset
+
+ discusses our sample of black holes extracted from Illustris-2.
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:analysis"
+
+\end_inset
+
+ we determine how the black holes in the Illustris-2 simulation coincide
+ with the fundamental plane of M03.
+ In Section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:discussion"
+
+\end_inset
+
+ we discuss our results, and Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:conclusions"
+
+\end_inset
+
+ presents our final conclusions.
+ 
+\end_layout
+
+\end_body
+\end_document

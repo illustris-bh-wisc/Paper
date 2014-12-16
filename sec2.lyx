@@ -1,0 +1,319 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+The Illustris Simulation
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:illustris"
+
+\end_inset
+
+The Illustris Project is a series of large-scale cosmological hydrodynamical
+ simulations of galaxy formation 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "vogelsberger2014properties"
+
+\end_inset
+
+.
+ The simulation consists of large cosmological situations in a periodic
+ box with 
+\begin_inset Formula $106.5\;{\rm Mpc}$
+\end_inset
+
+, simulated with different physics at different resolutions.
+ It assumes a standard flat 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+CDM cosmology with 
+\begin_inset Formula $\Omega_{m,0}=0.2726$
+\end_inset
+
+, 
+\begin_inset Formula $\Omega_{\Lambda,0}=0.72746$
+\end_inset
+
+, 
+\begin_inset Formula $\Omega_{b,0}=0.0456$
+\end_inset
+
+, and 
+\begin_inset Formula $H_{0}=70.4$
+\end_inset
+
+ km s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+ Mpc
+\begin_inset Formula $^{-1}$
+\end_inset
+
+ from the Wilkinson Microwave Anisotropy Probe 9-year data release 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "hinshaw2013nineyear"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In the Illustris simulations, collisionless black hole particles with a
+ seed mass of 
+\begin_inset Formula $1.42\times10^{5}M_{\odot}$
+\end_inset
+
+ are placed in dark matter halos of mass greater than 
+\begin_inset Formula $7.1\times10^{10}M_{\odot}$
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "sijacki2014theillustris"
+
+\end_inset
+
+.
+ The black hole seeds are allowed to grow through gas accretion or through
+ mergers with other black holes.
+ The black hole seeds are allowed to grow through gas accretion.
+ At 
+\begin_inset Formula $z=0$
+\end_inset
+
+, there are 32,542 black holes in total with 3965 black holes more massive
+ than 
+\begin_inset Formula $10^{7}M_{\odot}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Add a note on the accretion mechanism by means of the energy and momentum
+ balances due the gravitational force.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+In the Illustris simulations, collisionless black hole particles with a
+ seed mass of 
+\begin_inset Formula $1.42\times10^{5}M_{\odot}$
+\end_inset
+
+ are placed in dark matter halos of mass greater than 
+\begin_inset Formula $7.1\times10^{10}M_{\odot}$
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "sijacki2014theillustris"
+
+\end_inset
+
+.
+ The black hole seeds are allowed to grow through gas accretion or through
+ mergers with other black holes.
+ The black hole seeds are allowed to grow through gas accretion, parametrized
+ in terms of Eddington limited Bondi-Hoyle-Lyttleton (BHL)-like accretion
+ (
+\begin_inset CommandInset citation
+LatexCommand citet
+key "bondi1952accretion,bondihoyle1044"
+
+\end_inset
+
+), or through mergers with other black holes.
+ BHL is a non-spherical accretion flow which develops when a compact object
+ moves relative to a uniform gas cloud.
+ The BHL accretion rate on the black hole is given by
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+\dot{M}_{B}=\frac{4\pi G^{2}M_{BH}^{2}\rho}{(c_{s}^{2}+v^{2})^{3/2}},
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+where 
+\begin_inset Formula $\rho$
+\end_inset
+
+ and 
+\begin_inset Formula $c_{s}$
+\end_inset
+
+ are the density and sound speed of the gas, respectively, 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is a dimensionless parameter, and 
+\begin_inset Formula $v$
+\end_inset
+
+ is the velocity of the black hole relative to the gas.
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Then, the accretion is limited to the Eddinton rate,
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+\dot{M}_{Edd}=\frac{4\pi G^{2}M_{BH}m_{p}}{\epsilon_{r}\sigma_{T}c},
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+where 
+\begin_inset Formula $m_{p}$
+\end_inset
+
+ is the proton mass, 
+\begin_inset Formula $\sigma_{T}$
+\end_inset
+
+is the Thompson cross-section and 
+\begin_inset Formula $\epsilon_{r}$
+\end_inset
+
+is the radiative efficiency.
+ The radiaitve efficiency is related to the radiated bolometric luminosity,
+ 
+\begin_inset Formula $L_{B}$
+\end_inset
+
+, and accretion rate, 
+\begin_inset Formula $\dot{M}_{BH}$
+\end_inset
+
+, by
+\end_layout
+
+\begin_layout LyX-Code
+\begin_inset Formula 
+\begin{equation}
+\epsilon_{r}=\frac{L_{r}}{\dot{M}_{BH}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+This simply gives the mass to energy conversion efficiency set by the amount
+ of energy that can be extracted from the innermost stable orbit of an accretion
+ disk around a black hole.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

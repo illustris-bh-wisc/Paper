@@ -1,0 +1,257 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Discussion
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:discussion"
+
+\end_inset
+
+It is well known that the accretion processes of black holes and the resultant
+ energy deposition into the host galaxy are necessary ingredients in the
+ evolution of galaxies over cosmic time.
+ Although we do not understand the causal relationship between the black
+ hole and its host galaxy, our ability to constrain the mechanisms responsible
+ are derived principally from simulations of the phenomena.
+ Using the Illustris-2 simulation, we are able for the first time to quantify
+ the growth and evolution of supermassive black holes in a cosmological
+ simulation at the resolution of 
+\series bold
+XXX 
+\series default
+
+\begin_inset Formula ${\rm M_{\odot}}$
+\end_inset
+
+.
+ Using these high-resolution simulation results, we have modelled both the
+ x-ray and radio luminosities as a function of black hole mass over the
+ full range present in the Illustris-2 simulation.
+\end_layout
+
+\begin_layout Standard
+In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:bhpop_hist2d"
+
+\end_inset
+
+, we find that the accretion rate of black holes with masses less than the
+ median mass of 
+\begin_inset Formula $\mathbf{XXX}{\rm M}_{\odot}$
+\end_inset
+
+ exhibit accretion rates that differ by 
+\series bold
+N
+\series default
+ orders of magnitude.
+ Further, 
+\series bold
+XXX%
+\series default
+ exhibit accretion rates less than 
+\begin_inset Formula $10^{-10}\,{\rm M_{\odot}s^{-1}}$
+\end_inset
+
+ indicating that, on the average, a black hole must accrete for 
+\begin_inset Formula $\mathbf{XX}\,{\rm Gyrs}$
+\end_inset
+
+ to achieve the median mass.
+ These accretion rates are too low to account for their masses at 
+\begin_inset Formula $z=0$
+\end_inset
+
+.
+ For example, a typical low-mass (
+\begin_inset Formula $10^{7}M_{\odot}$
+\end_inset
+
+) black hole accretes at approximately 
+\begin_inset Formula $10^{-12}M_{\odot}s^{-1}$
+\end_inset
+
+ at 
+\begin_inset Formula $z=0$
+\end_inset
+
+.
+ At this rate, such a black hole could only yields a mass of 
+\begin_inset Formula $\sim10^{5}M_{\odot}$
+\end_inset
+
+ over the simulation time.
+ Although the high-mass black holes have generally larger accretion rates
+ in excess of 
+\begin_inset Formula $\dot{M}\approx10^{-10}M_{\odot}s^{-1}$
+\end_inset
+
+, the same calculation yields masses of 
+\begin_inset Formula $\sim10^{7}M_{\odot}$
+\end_inset
+
+ compared to the actual mass of 
+\begin_inset Formula $\sim10^{9}M_{\odot}$
+\end_inset
+
+ attained over the simulation time.
+ This implies that the accretion rates for most of the black holes in the
+ simulation were likely much larger in the past.
+ This is consistent with the notion that black hole accretion rates are
+ tied to the gas fraction in galaxies which was larger at higher redshift.
+ 
+\series bold
+Can we find out when the BH was seeded? I want to make a plot of seed time
+ vs mass to make this more concrete.
+ Is the linear relation between mass and 
+\begin_inset Formula $\dot{M}$
+\end_inset
+
+ known either empirically or from theory?
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Talk about Figure 5.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Figures/Mdot_vs_GasFrac.png
+	display false
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Mdot_vs_Mgas"
+
+\end_inset
+
+
+\series default
+Black hole accretion rate of as a function of the fraction of gas in each
+ group for our sample.
+ Colors correspond to black hole mass.
+ All masses are in units of 
+\begin_inset Formula $\log\left(M_{\odot}\right)$
+\end_inset
+
+ and the accretion rate is in units 
+\begin_inset Formula $\log\left(M_{\odot}yr^{-1}\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
