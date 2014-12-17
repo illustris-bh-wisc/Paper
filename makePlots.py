@@ -25,20 +25,6 @@ axisLabelTextSize = 9
 # H_0 = 70.4 km/s/Mpc
 massConversionFactor = 4.3e10 #1e10 / 0.704
 
-data = np.loadtxt('elvis_templates.csv',delimiter=',')
-
-L_bol = data[:,0]-np.log10(3.846e33)
-L_xray = data[:,1]-np.log10(3.846e33)
-p = np.poly1d(np.polyfit(L_bol,L_xray,1))
-fig = make_fig()
-plt.scatter(L_bol,L_xray, marker='+', c='blue')
-plt.plot(L_bol,p(L_bol),'r-')
-plt.xlim(L_bol.min(),L_bol.max()*1.002)
-plt.ylim(L_xray.min(),L_xray.max()*1.002)
-plt.ylabel(r'$\log(L_{x} [L_{\odot}])$', size=axisLabelTextSize)
-plt.xlabel(r'$\log(L_{bol} [L_\odot])$', size=axisLabelTextSize)
-save_fig('Figures/elvis_template.png')
-
 # Read catalog
 basedir = 'Illustris-3'
 snapid = 135
@@ -174,3 +160,19 @@ plt.plot(x,y, linestyle='--', c='r', linewidth=2)
 plt.ylabel(r'$\log\,L_{x}$',fontsize=axisLabelTextSize)
 plt.xlabel(r"$\log M+{0:.3}\log\dot{{M}}+{1:.3}$".format(opt[0],opt[1]),fontsize=axisLabelTextSize)
 save_fig('Figures/fp_fit.png')
+
+
+# Plot the elvis data
+data = np.loadtxt('elvis_templates.csv',delimiter=',')
+
+L_bol = data[:,0]-np.log10(3.846e33)
+L_xray = data[:,1]-np.log10(3.846e33)
+p = np.poly1d(np.polyfit(L_bol,L_xray,1))
+fig = make_fig()
+plt.scatter(L_bol,L_xray, marker='+', c='blue')
+plt.plot(L_bol,p(L_bol),'r-')
+plt.xlim(L_bol.min(),L_bol.max()*1.002)
+plt.ylim(L_xray.min(),L_xray.max()*1.002)
+plt.ylabel(r'$\log(L_{x} [L_{\odot}])$', size=axisLabelTextSize)
+plt.xlabel(r'$\log(L_{bol} [L_\odot])$', size=axisLabelTextSize)
+save_fig('Figures/elvis_template.png')
