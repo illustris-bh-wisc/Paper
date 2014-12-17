@@ -74,14 +74,6 @@ Discussion
 \end_layout
 
 \begin_layout Standard
-Gas fraction plot -- highest mass BHs live in largest halos, but have largest
- gas masses.
- These BHs are also highest accreters at z=0.
- So some of the gas needs to be in the galactic center to feed BH.
- But we need temperature and density to determine if feedback is doing stuff.
-\end_layout
-
-\begin_layout Standard
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:discussion"
@@ -91,23 +83,16 @@ name "sec:discussion"
 It is well known that the accretion processes of black holes and the resultant
  energy deposition into the host galaxy are necessary ingredients in the
  evolution of galaxies over cosmic time.
- Although we do not understand the causal relationship between the black
- hole and its host galaxy, our ability to constrain the mechanisms responsible
- are derived principally from simulations of the phenomena.
- Using the Illustris-2 simulation, we are able for the first time to quantify
- the growth and evolution of supermassive black holes in a cosmological
- simulation at the resolution of 
-\series bold
-XXX 
-\series default
-
-\begin_inset Formula ${\rm M_{\odot}}$
+ Although we do not fully understand the causal relationship between the
+ black hole and its host galaxy, our ability to constrain the mechanisms
+ responsible are derived principally from simulations of the phenomena.
+ Using the Illustris-2 simulation, we are able to quantify the growth and
+ evolution of supermassive black holes in a cosmological simulation at the
+ resolution of 
+\begin_inset Formula $\sim10^{5}\,{\rm M_{\odot}}$
 \end_inset
 
-.
- Using these high-resolution simulation results, we have modelled both the
- x-ray and radio luminosities as a function of black hole mass over the
- full range present in the Illustris-2 simulation.
+ over cosmic time.
 \end_layout
 
 \begin_layout Standard
@@ -120,38 +105,43 @@ reference "fig:bhpop_hist2d"
 
 , we find that the accretion rate of black holes with masses less than the
  median mass of 
-\begin_inset Formula $\mathbf{XXX}{\rm M}_{\odot}$
+\begin_inset Formula $7.04\times10^{5}\,{\rm M}_{\odot}$
 \end_inset
 
- exhibit accretion rates that differ by 
-\series bold
-N
-\series default
- orders of magnitude.
- Further, 
-\series bold
-XXX%
-\series default
- exhibit accretion rates less than 
-\begin_inset Formula $10^{-10}\,{\rm M_{\odot}s^{-1}}$
+ exhibit a range of accretion rates from 
+\begin_inset Formula $\sim10^{-16}$
 \end_inset
 
- indicating that, on the average, a black hole must accrete for 
-\begin_inset Formula $\mathbf{XX}\,{\rm Gyrs}$
+ to 
+\begin_inset Formula $\sim10^{-11}\,{\rm M_{\odot}}\, s^{-1}$
 \end_inset
 
- to achieve the median mass.
- These accretion rates are too low to account for their masses at 
+.
+ Assuming these black holes have always been growing at these rates, then
+ on the average they must accrete for more than 
+\begin_inset Formula $3$
+\end_inset
+
+ Hubble times in order to achieve the median black hole mass today even
+ though their seed mass is 
+\begin_inset Formula $1.42\times10^{5}\,{\rm M_{\odot}}$
+\end_inset
+
+.
+ Hence, their current accretion rates are too low to account for their masses
+ at 
 \begin_inset Formula $z=0$
 \end_inset
 
 .
- For example, a typical low-mass (
-\begin_inset Formula $10^{7}M_{\odot}$
+ Examining black holes with masses larger than the median, we find a similar
+ result.
+ For example, a typical 
+\begin_inset Formula $10^{7}\,{\rm M}_{\odot}$
 \end_inset
 
-) black hole accretes at approximately 
-\begin_inset Formula $10^{-12}M_{\odot}s^{-1}$
+ black hole is accreting at approximately 
+\begin_inset Formula $10^{-12}{\rm M}_{\odot}s^{-1}$
 \end_inset
 
  at 
@@ -159,49 +149,157 @@ XXX%
 \end_inset
 
 .
- At this rate, such a black hole could only yields a mass of 
-\begin_inset Formula $\sim10^{5}M_{\odot}$
+ At this rate, such a black hole could only yield a mass of 
+\begin_inset Formula $\sim10^{5}{\rm M}_{\odot}$
 \end_inset
 
  over the simulation time.
- Although the high-mass black holes have generally larger accretion rates
+ Additionally, this trend holds for the black holes with current masses
  in excess of 
-\begin_inset Formula $\dot{M}\approx10^{-10}M_{\odot}s^{-1}$
+\begin_inset Formula $10^{9}\,{\rm M_{\odot}}$
 \end_inset
 
-, the same calculation yields masses of 
-\begin_inset Formula $\sim10^{7}M_{\odot}$
+ which generally exhibit accretion rates above 
+\begin_inset Formula $\dot{{\rm M}}\ge10^{-9}{\rm M}_{\odot}s^{-1}$
 \end_inset
 
- compared to the actual mass of 
-\begin_inset Formula $\sim10^{9}M_{\odot}$
+.
+ The same calculation as above yields a mass of 
+\begin_inset Formula $\sim10^{8}{\rm M}_{\odot}$
 \end_inset
 
- attained over the simulation time.
- This implies that the accretion rates for most of the black holes in the
- simulation were likely much larger in the past.
+ over the simulation time.
+ This strongly suggests that the accretion rates for all black holes in
+ the Ilustris simulation were likely much larger in the past.
  This is consistent with the notion that black hole accretion rates are
- tied to the gas fraction in galaxies which was larger at higher redshift.
- 
-\series bold
-Can we find out when the BH was seeded? I want to make a plot of seed time
- vs mass to make this more concrete.
- Is the linear relation between mass and 
-\begin_inset Formula $\dot{M}$
+ tied to the gas fraction in galaxies which is known to be larger at higher
+ redshift 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bauermeister2013theegnog"
+
 \end_inset
 
- known either empirically or from theory?
+.
 \end_layout
 
 \begin_layout Standard
+Examing the gas masses of the groups to which our sample of black holes
+ belongs (see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:mgroup_vs_mgas"
 
-\series bold
-Talk about Figure 5.
+\end_inset
+
+), we find that the groups with the largest masses contain both the largest
+ gas masses as well as the largest mass black holes.
+ This is consistent with the scenario in which the group dark matter halo
+ grows hierarchically creating an ever larger gravitational potential into
+ which the cosmic gas falls.
+ This feeds the central black hole thereby allowing its mass to increase
+ in lockstep with the mass of the group halo.
+ From Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Mdot_vs_Mgas"
+
+\end_inset
+
+, we see that the most massive black holes live in the most gas poor halos
+ (i.e., have the smallest gas masses for their host halo masses) but, seemingly
+ paradoxically, have the highest accretion rates today.
+\end_layout
+
+\begin_layout Standard
+Clearly then, a substantial portion of the gas in these groups must be present
+ in the center of the halo in order to feed the black hole (assuming the
+ black hole lives at the center of the halo).
+ However, this gas must have a temperature below the virial temperature
+ of the halo in order to aggregate in the center of the halo.
+ This indicates that the gas deposited into these halos likely comes from
+ the cosmic filaments rather than from smaller galaxies merging into the
+ group which would be shock heated as they fall into the halo.
+ How, then, can this relatively cold gas still be present in these groups
+ when the accretion rates are nearly four orders of magnitude greater than
+ those of black holes at the median mass of our sample and these black holes
+ have masses requiring timescales longer than the simulation time to achieve
+ even at their current accretion rates? One possibility is that the gas
+ has only recently fallen into the halo.
+ However, it is unlikely that 
+\begin_inset Formula $\sim10^{14}\,{\rm M_{\odot}}$
+\end_inset
+
+ of gas suddenly appears in a halo at 
+\begin_inset Formula $z\sim0$
+\end_inset
+
+.
+ Another possibility is that these black holes have only recently become
+ active, consuming the gas supply that has been building over cosmic time,
+ and providing their host galaxies with a large energy feedback.
+\end_layout
+
+\begin_layout Standard
+Conversely, the lowest mass black holes live in the most gas rich halos
+ yet exhibit the lowest accretion rates.
+ This indicates that the gas in these groups is likely diffuse and unable
+ to coalesce onto the central black hole.
+ This may be due to the black holes in these groups having undergone intense
+ energy output at earlier times, heating and pushing the gas toward the
+ outer regions of the halo.
+ Although we do not have the temperature and density measurements to fully
+ quantify this, we note that this is consistent with our previous findings
+ that these low-mass black holes could not have grown to their current masses
+ in less than 
+\begin_inset Formula $\sim3$
+\end_inset
+
+ Hubble times and must have been accreting at a higher rate in the past.
+ This appears to be a 
+\begin_inset Quotes eld
+\end_inset
+
+downsizing
+\begin_inset Quotes erd
+\end_inset
+
+ of black hole accretion rates similar to the downsizing seen with the cosmic
+ specific star formation rate 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "damen2009theevolution"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+This dichotomy in black hole accretion rates, discussed further in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "sijacki2014theillustris"
+
+\end_inset
+
+, seemingly implies the presence of two black hole populations in the Illustris
+ simulation.
+ However, we find that our sample of black holes reproduces the slope of
+ the fundamental plane from M03 to within a factor of 
+\begin_inset Formula $\sim2$
+\end_inset
+
+.
+ If there were indeed two separate populations of black holes providing
+ fundamentally different mechanisms of energetic feedback to their host
+ galaxies, their X-ray luminosities would not be so closely tied to their
+ mass accretion rates as indicated by the tight correlation on the fundamental
+ plane.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status collapsed
@@ -218,8 +316,6 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-
-\series bold
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -259,38 +355,6 @@ Black hole accretion rate of as a function of the fraction of gas in each
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-This relation allows us to construct a power-law relationship between 
-\begin_inset Formula $M$
-\end_inset
-
- and 
-\begin_inset Formula $\dot{M}$
-\end_inset
-
- using linear least-squares (Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:bhpop_hist2d"
-
-\end_inset
-
-).
- The best-fit is given by
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\log\dot{M}=0.869\log M_{BH}-17.855.\label{eq:int_relation}
-\end{equation}
-
-\end_inset
-
-This relationship reflects the intrinsic properties of the simulation, and
- is independent of any models.
 \begin_inset Float figure
 wide false
 sideways false
@@ -317,30 +381,60 @@ name "fig:bhpop_hist2d"
 
 Black hole accretion rate as a function of black hole mass for the Illustrist-2
  simulation for our sample.
- 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-The best-fit power-law relationship between 
-\begin_inset Formula $M$
-\end_inset
-
- and 
-\begin_inset Formula $\dot{M}$
-\end_inset
-
- is shown in green.
-\end_layout
-
-\end_inset
-
  Colors correspond to a two-dimensional density of the same plot sampled
  in log space.
 \end_layout
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Figures/Mgroup_vs_Mgas.png
+	display false
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:mgroup_vs_mgas"
+
+\end_inset
+
+Group gas mass as a function of the group mass for our sample of black holes
+ from the Illustris simulation.
+ Colors correspond to the mass of the black holes.
+ All units are in 
+\begin_inset Formula ${\rm M_{\odot}}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 

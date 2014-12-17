@@ -1,4 +1,4 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
+#LyX file created by tex2lyx 2.1
 \lyxformat 474
 \begin_document
 \begin_header
@@ -39,8 +39,8 @@
 \use_package stackrel 0
 \use_package stmaryrd 0
 \use_package undertilde 0
-\cite_engine natbib
-\cite_engine_type authoryear
+\cite_engine basic
+\cite_engine_type default
 \biblio_style plain
 \use_bibtopic false
 \use_indices false
@@ -69,50 +69,20 @@
 
 \begin_body
 
-\begin_layout Section
-Conclusions
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:conclusions"
-
+\begin_layout Abstract
+In this work, we reconstruct the well-known the fundamental plane of black holes using data gathered from the state-of-the-art Illustris cosmological simulation. The high resolution and detailed gas dynamics allow us to evaluate the growth and evolution of black holes over cosmic time. From the black hole physics implemented in Illustris, we extract X-ray luminosities by assuming either an Eddington approximation or the thin-disk model. Using these models, we calculate an efficiency factor 
+\begin_inset Formula $q$
 \end_inset
 
-In this work, we have analyzed the complete of supermassive black holes
- from the state-of-the-art cosmological hydrodynamical simulation Illustris-2.
- Applying well-known models of black hole phenomena, we calculated the x-ray
- and radio luminosities as a function of black hole mass.
- Using the empirically-derived relation between these three quantities,
- we have shown that the...
-\end_layout
+ which describes the slope of the fundamental plane. We find that the 
+\begin_inset Formula $q$
+\end_inset
 
-\begin_layout Standard
-In future work, we plan to perform the following analyses:
-\end_layout
+ parameter derived from the black hole data in the Illustris simulation is inconsistent with the Eddington approximation and is within a factor of 
+\begin_inset Formula $\sim2$
+\end_inset
 
-\begin_layout Itemize
-Go to higher redshift to trace the evolution of the fundamental plane over
- cosmic time
-\end_layout
-
-\begin_layout Itemize
-test the Bondi-Hoyle accretion model
-\end_layout
-
-\begin_layout Itemize
-Trace the temperature and density of the gas inside of the halos as a function
- of redshift to determine how the feedback is affecting the environment
-\end_layout
-
-\begin_layout Itemize
-With the temperatures, we can then estimate radio luminosities to more exactly
- compare with the M03 fundamental plane
-\end_layout
-
-\begin_layout Itemize
-Examine the effect of mergers on the slope of the fundamental plane
+ of the accepted value for the thin-disk approximation. 
 \end_layout
 
 \end_body

@@ -3,6 +3,9 @@
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 \usepackage{color}
+\usepackage{verbatim}
+\usepackage{float}
+\usepackage{booktabs}
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage[unicode=true,pdfusetitle,
@@ -13,16 +16,25 @@
 
 \makeatletter
 
-\newenvironment{lyxcode}
-{\par\begin{list}{}{
-\setlength{\rightmargin}{\leftmargin}
-\setlength{\listparindent}{0pt}% needed for AMS classes
-\raggedright
-\setlength{\itemsep}{0pt}
-\setlength{\parsep}{0pt}
-\normalfont\ttfamily}%
- \item[]}
-{\end{list}}
+%\newenvironment{lyxcode}
+%{\par\begin{list}{}{
+%\setlength{\rightmargin}{\leftmargin}
+%\setlength{\listparindent}{0pt}% needed for AMS classes
+%\raggedright
+%\setlength{\itemsep}{0pt}
+%\setlength{\parsep}{0pt}
+%\normalfont\ttfamily}%
+ %\item[]}
+%{\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+%% The greyedout annotation environment
+\definecolor{note_fontcolor}{rgb}{0.800781, 0.800781, 0.800781}
+\newenvironment{lyxgreyedout}
+  {\textcolor{note_fontcolor}\bgroup\ignorespaces}
+  {\ignorespacesafterend\egroup}
 
 \usepackage[caption=false]{subfig}
 

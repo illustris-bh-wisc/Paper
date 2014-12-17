@@ -164,18 +164,20 @@ key "sijacki2014theillustris"
 \end_inset
 
 .
-\end_layout
+ 
+\begin_inset Note Greyedout
+status collapsed
 
-\begin_layout Standard
-
-\series bold
+\begin_layout Plain Layout
 Add a note on the accretion mechanism by means of the energy and momentum
  balances due the gravitational force.
 \end_layout
 
-\begin_layout Standard
+\end_inset
+
+
 \begin_inset Note Comment
-status open
+status collapsed
 
 \begin_layout Plain Layout
 In the Illustris simulations, collisionless black hole particles with a
