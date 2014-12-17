@@ -74,8 +74,8 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-Since the earliest simulations of the formation and evolution of disk galaxies,
- the problem of stability of the gas in the disk has been a key issue 
+Since the earliest simulations self-gravitating, gaseous disks the problem
+ of stability of the gas in the disk has been a key issue 
 \begin_inset CommandInset citation
 LatexCommand citep
 before "e.g.,"
@@ -84,8 +84,8 @@ key "lucy1977anumerical"
 \end_inset
 
 .
- One prominent example of this is the so-called `angular-momentum catastrophe'
- 
+ One prominent example of this in astrophysical contexts is the so-called
+ `angular-momentum catastrophe' 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "navarro1994accretion"
@@ -124,8 +124,7 @@ key "hopkins2008acosmological"
 \begin_inset Formula $\sim3\%$
 \end_inset
 
- of local galaxies at
- 
+ of local galaxies at 
 \begin_inset Formula $z\lesssim0.7$
 \end_inset
 
@@ -136,18 +135,13 @@ key "haggard2010thefield"
 
 \end_inset
 
-
-\lang english
  with an increasing fraction at higher redshifts 
-
 \begin_inset CommandInset citation
 LatexCommand citep
 key "martini2013thecluster"
 
 \end_inset
 
-
-\lang english
  indicates that this mechanism may contribute a non-negligible source of
  energy for evolving galaxies.
  Additionally, the invocation of an AGN feedback mechanism has been shown
