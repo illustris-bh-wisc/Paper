@@ -74,6 +74,14 @@ Discussion
 \end_layout
 
 \begin_layout Standard
+Gas fraction plot -- highest mass BHs live in largest halos, but have largest
+ gas masses.
+ These BHs are also highest accreters at z=0.
+ So some of the gas needs to be in the galactic center to feed BH.
+ But we need temperature and density to determine if feedback is doing stuff.
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:discussion"

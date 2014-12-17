@@ -39,8 +39,8 @@
 \use_package stackrel 0
 \use_package stmaryrd 0
 \use_package undertilde 0
-\cite_engine basic
-\cite_engine_type default
+\cite_engine natbib
+\cite_engine_type authoryear
 \biblio_style plain
 \use_bibtopic false
 \use_indices false
@@ -119,7 +119,7 @@ The BH population in Illustris was analysed using the low resolution simulation
 
 ).
  Assuming that the thin-disk approximation with 10% efficiency is correct
- (see 
+ (see Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:analysis"
@@ -167,15 +167,9 @@ reference "fig:bhpop_mdot"
 \end_inset
 
 -space) using astroML's one-dimensional Gaussian mixture 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-citep{vanderplas2012}
-\end_layout
+\begin_inset CommandInset citation
+LatexCommand citep
+key "vanderplas2012"
 
 \end_inset
 

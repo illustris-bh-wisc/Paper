@@ -85,7 +85,30 @@ In this work, we have analyzed the complete of supermassive black holes
  Applying well-known models of black hole phenomena, we calculated the x-ray
  and radio luminosities as a function of black hole mass.
  Using the empirically-derived relation between these three quantities,
- we have shown that the 
+ we have shown that the...
+\end_layout
+
+\begin_layout Standard
+In future work, we plan to perform the following analyses:
+\end_layout
+
+\begin_layout Itemize
+Go to higher redshift to trace the evolution of the fundamental plane.
+ 
+\end_layout
+
+\begin_layout Itemize
+test the Bondi-Hoyle accretion model 
+\end_layout
+
+\begin_layout Itemize
+Trace the temperature and density of the gas inside of the halos as a function
+ of redshift to determine how the feedback is affecting the environment.
+\end_layout
+
+\begin_layout Itemize
+With the temperatures, we can then estimate radio luminosities to more exactly
+ compare with the M03 fundamental plane.
 \end_layout
 
 \end_body

@@ -12,7 +12,7 @@
 *.aux
 *.brf
 output.dat
-illustrisbh/*
+illustrisbh
 Illustris-3
 Figures.zip
 *.*~
