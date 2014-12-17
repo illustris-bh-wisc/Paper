@@ -253,5 +253,93 @@ Black hole accretion rate of as a function of the fraction of gas in each
 
 \end_layout
 
+\begin_layout Standard
+This relation allows us to construct a power-law relationship between 
+\begin_inset Formula $M$
+\end_inset
+
+ and 
+\begin_inset Formula $\dot{M}$
+\end_inset
+
+ using linear least-squares (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:bhpop_hist2d"
+
+\end_inset
+
+).
+ The best-fit is given by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\log\dot{M}=0.869\log M_{BH}-17.855.\label{eq:int_relation}
+\end{equation}
+
+\end_inset
+
+This relationship reflects the intrinsic properties of the simulation, and
+ is independent of any models.
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Figures/Illustris2_bhpop_hist2d.png
+	display false
+	clip
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:bhpop_hist2d"
+
+\end_inset
+
+Black hole accretion rate as a function of black hole mass for the Illustrist-2
+ simulation for our sample.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+The best-fit power-law relationship between 
+\begin_inset Formula $M$
+\end_inset
+
+ and 
+\begin_inset Formula $\dot{M}$
+\end_inset
+
+ is shown in green.
+\end_layout
+
+\end_inset
+
+ Colors correspond to a two-dimensional density of the same plot sampled
+ in log space.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document
